@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="EgoTech Games — studio de jeux vidéo indépendant près de Bordeaux. One More Season, Chocolatine Wars et plus.">
+<meta property="og:title" content="EgoTech Games">
+<meta property="og:description" content="Studio de jeux vidéo indépendant · Bordeaux, France">
+<meta property="og:image" content="assets/logo-horizontal-dark.png">
+<meta name="theme-color" content="#251C3B">
+<link rel="icon" type="image/png" href="assets/icon-square.png">
+<link rel="apple-touch-icon" href="assets/icon-square.png">
+<title>EgoTech Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Silkscreen&family=Figtree:wght@400;500;700&display=swap">
+<style>
+  /* ============================================================
+     EgoTech Games — palette tirée du logo (joystick pixel art)
+     Le site assume un seul univers visuel : "violet nuit" arcade.
+     ============================================================ */
+  :root {
+    --nuit:      #251C3B;  /* fond principal (violet nuit)          */
+    --nuit-2:    #2F2549;  /* surfaces surélevées                    */
+    --nuit-3:    #3E2D58;  /* embase du joystick                     */
+    --contour:   #1B1426;  /* contour pixel art / ombres dures       */
+    --lavande:   #8E86B0;  /* tige du joystick, texte secondaire     */
+    --creme:     #FFF3DE;  /* texte principal                        */
+    --framboise: #E8386C;  /* accent (boule du joystick)             */
+    --framboise-2:#A8244F;
+    --ambre:     #FFC24B;  /* embase dorée                           */
+    --ambre-2:   #D48A2A;
+
+    --f-pixel: "Pixelify Sans", "Silkscreen", ui-monospace, monospace;
+    --f-label: "Silkscreen", ui-monospace, "Courier New", monospace;
+    --f-body:  "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --px: 4px; /* taille d'un "pixel" pour les ombres dures */
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+
+  body {
+    margin: 0;
+    background: var(--nuit);
+    color: var(--creme);
+    font-family: var(--f-body);
+    font-size: 17px;
+    line-height: 1.6;
+    padding-inline: 20px;
+    /* trame de pixels très discrète */
+    background-image: radial-gradient(rgba(142,134,176,.10) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+  img { max-width: 100%; height: auto; }
+  .pixel { image-rendering: pixelated; image-rendering: crisp-edges; }
+  a { color: var(--ambre); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--ambre); outline-offset: 3px; }
+
+  .wrap { max-width: 1080px; margin-inline: auto; }
+
+  /* ---------- Langue : FR / EN ---------- */
+  html[data-lang="fr"] [lang="en"]:not(html) { display: none !important; }
+  html[data-lang="en"] [lang="fr"]:not(html) { display: none !important; }
+
+  /* ---------- En-tête ---------- */
+  header.top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    margin-inline: -20px; padding: 12px 20px;
+    background: rgba(37,28,59,.92); backdrop-filter: blur(6px);
+    border-bottom: var(--px) solid var(--contour);
+  }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  header.top .brand img { height: 44px; width: auto; display: block; }
+  nav { display: flex; align-items: center; gap: 6px 20px; flex-wrap: wrap; }
+  nav a { font-family: var(--f-label); font-size: 13px; color: var(--creme); text-decoration: none; letter-spacing: .04em; }
+  nav a:hover { color: var(--ambre); }
+  .lang-btn {
+    font-family: var(--f-label); font-size: 12px; color: var(--contour); background: var(--ambre);
+    border: 2px solid var(--contour); box-shadow: 3px 3px 0 var(--contour); padding: 4px 8px; cursor: pointer;
+  }
+  .lang-btn:active { transform: translate(3px,3px); box-shadow: none; }
+
+  /* ---------- Titres & libellés ---------- */
+  h1, h2, h3 { font-family: var(--f-pixel); font-weight: 700; line-height: 1.1; text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(2.3rem, 6vw, 4rem); }
+  h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+  h3 { font-size: 1.6rem; }
+  .eyebrow { font-family: var(--f-label); font-size: 13px; letter-spacing: .08em; color: var(--lavande); text-transform: uppercase; margin: 0 0 10px; }
+  p { margin: 0; max-width: 62ch; }
+  .muted { color: var(--lavande); }
+
+  section { padding-block: 72px; }
+  section + section { border-top: var(--px) dashed rgba(142,134,176,.22); }
+  .sec-head { display: grid; gap: 8px; margin-bottom: 36px; }
+
+  /* ---------- Boutons "cartouche" ---------- */
+  .btns { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--f-pixel); font-weight: 700; font-size: 1.05rem; text-decoration: none;
+    padding: 10px 18px; border: 3px solid var(--contour);
+    box-shadow: var(--px) var(--px) 0 var(--contour);
+    transition: transform .08s, box-shadow .08s;
+  }
+  .btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--contour); }
+  .btn:active { transform: translate(4px,4px); box-shadow: none; }
+  .btn.steam { background: var(--framboise); color: var(--creme); }
+  .btn.epic  { background: var(--creme); color: var(--contour); }
+  .btn.ghost { background: var(--nuit-2); color: var(--creme); }
+
+  /* ---------- Hero ---------- */
+  .hero { display: grid; grid-template-columns: 1.3fr .7fr; gap: 40px; align-items: center; padding-block: 64px 72px; }
+  .hero p.lead { font-size: 1.2rem; margin-top: 18px; color: var(--creme); }
+  .hero .btns { margin-top: 28px; }
+  .hero .stick { justify-self: center; width: min(280px, 70%); }
+  .hero .stick img { animation: wobble 3.2s steps(2) infinite; transform-origin: 50% 90%; }
+  @keyframes wobble { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-3deg); } }
+  .hl { color: var(--ambre); }
+
+  /* ---------- Jeu vedette ---------- */
+  .feature {
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 0;
+    background: var(--nuit-2); border: var(--px) solid var(--contour);
+    box-shadow: 8px 8px 0 var(--contour);
+  }
+  .shot {
+    aspect-ratio: 16 / 9; max-width: 100%; position: relative; overflow: hidden;
+    display: grid; place-items: center; text-align: center;
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.035) 0 12px, transparent 12px 24px),
+      linear-gradient(135deg, var(--nuit-3), var(--contour));
+    color: var(--lavande); font-family: var(--f-label); font-size: 12px; padding: 16px;
+  }
+  .shot img, .shot iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+  .feature .shot { aspect-ratio: auto; min-height: 320px; border-right: var(--px) solid var(--contour); }
+  .feature .body { padding: 32px; display: grid; gap: 16px; align-content: start; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-family: var(--f-label); font-size: 11px; letter-spacing: .04em; padding: 3px 8px; border: 2px solid var(--lavande); color: var(--creme); }
+  .status {
+    font-family: var(--f-label); font-size: 12px; display: inline-block; padding: 4px 10px;
+    background: var(--ambre); color: var(--contour); border: 2px solid var(--contour); justify-self: start;
+  }
+  .status.dev { background: var(--lavande); }
+  dl.facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; font-size: 15px; }
+  dl.facts dt { font-family: var(--f-label); font-size: 11px; color: var(--lavande); padding-top: 3px; text-transform: uppercase; }
+  dl.facts dd { margin: 0; }
+
+  /* ---------- Autres jeux ---------- */
+  .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; margin-top: 40px; }
+  .card { background: var(--nuit-2); border: 3px solid var(--contour); display: grid; grid-template-rows: auto 1fr; }
+  .card .shot { border-bottom: 3px solid var(--contour); }
+  .card .body { padding: 22px 24px 26px; display: grid; gap: 12px; align-content: start; }
+
+  /* ---------- Prochaines sorties (vraie chronologie) ---------- */
+  ol.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  ol.timeline li {
+    display: grid; grid-template-columns: 150px 28px 1fr; gap: 18px; align-items: start; padding-bottom: 28px; position: relative;
+  }
+  ol.timeline .when { font-family: var(--f-pixel); font-weight: 700; font-size: 1.15rem; color: var(--ambre); text-align: right; padding-top: 1px; font-variant-numeric: tabular-nums; }
+  ol.timeline .dot { width: 20px; height: 20px; margin-top: 5px; background: var(--framboise); border: 3px solid var(--contour); position: relative; z-index: 1; justify-self: center; }
+  ol.timeline li:not(:last-child)::before {
+    content: ""; position: absolute; left: calc(150px + 18px + 12px); top: 24px; bottom: 0; width: 4px;
+    background: repeating-linear-gradient(var(--lavande) 0 4px, transparent 4px 8px);
+  }
+  ol.timeline li.past .dot { background: var(--lavande); }
+  ol.timeline .what strong { font-family: var(--f-pixel); font-size: 1.2rem; font-weight: 700; display: block; line-height: 1.2; }
+  ol.timeline .what p { color: var(--lavande); font-size: 15px; margin-top: 4px; }
+
+  /* ---------- Créateur ---------- */
+  .creator { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; }
+  .avatar {
+    aspect-ratio: 1; max-width: 100%; background: var(--nuit-3); border: var(--px) solid var(--contour); box-shadow: 6px 6px 0 var(--contour);
+    display: grid; place-items: center; font-family: var(--f-label); font-size: 12px; color: var(--lavande); text-align: center; padding: 12px; overflow: hidden;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .creator .text { display: grid; gap: 16px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 6px; }
+  .stats div { font-size: 14px; color: var(--lavande); }
+  .stats b { display: block; font-family: var(--f-pixel); font-size: 1.6rem; color: var(--creme); line-height: 1.1; }
+
+  /* ---------- Contact & pied de page ---------- */
+  .contact { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+    background: var(--ambre); color: var(--contour); border: var(--px) solid var(--contour); box-shadow: 8px 8px 0 var(--contour); padding: 28px 32px; }
+  .contact h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+  .contact p { margin-top: 6px; }
+  .contact a.mail { font-family: var(--f-pixel); font-weight: 700; font-size: 1.25rem; color: var(--contour); }
+  .contact .socials { display: flex; flex-wrap: wrap; gap: 10px; }
+  .contact .socials a { font-family: var(--f-label); font-size: 12px; color: var(--contour); background: var(--creme); border: 2px solid var(--contour); padding: 5px 10px; text-decoration: none; box-shadow: 3px 3px 0 var(--contour); }
+
+  footer { padding-block: 40px 56px; border-top: var(--px) solid var(--contour); margin-top: 72px; font-size: 14px; color: var(--lavande); }
+  footer .wrap { display: grid; gap: 24px; }
+  footer .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  footer img { height: 36px; width: auto; }
+  details.legal summary { cursor: pointer; font-family: var(--f-label); font-size: 12px; color: var(--creme); }
+  details.legal .inner { margin-top: 14px; display: grid; gap: 10px; max-width: 70ch; }
+  details.legal h4 { margin: 8px 0 0; font-family: var(--f-label); font-size: 12px; color: var(--creme); font-weight: 400; }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; padding-block: 40px 56px; }
+    .hero .stick { order: -1; width: 150px; justify-self: start; }
+    .feature { grid-template-columns: 1fr; }
+    .feature .shot { min-height: 0; aspect-ratio: 16/9; border-right: 0; border-bottom: var(--px) solid var(--contour); }
+    .feature .body { padding: 24px 20px; }
+    .grid2 { grid-template-columns: 1fr; }
+    .creator { grid-template-columns: 1fr; gap: 24px; }
+    .avatar { width: 160px; }
+    ol.timeline li { grid-template-columns: 22px 1fr; gap: 14px; }
+    ol.timeline .when { grid-column: 2; grid-row: 1; text-align: left; font-size: 1rem; }
+    ol.timeline .dot { grid-column: 1; grid-row: 1 / span 2; width: 18px; height: 18px; }
+    ol.timeline .what { grid-column: 2; }
+    ol.timeline li:not(:last-child)::before { left: 9px; }
+    section { padding-block: 56px; }
+    header.top .brand img { height: 36px; }
+  }
+  @media (max-width: 520px) { nav a.hide-sm { display: none; } }
+</style>
+</head>
+<body>
+<!-- =================================================================
+     ✏️  GUIDE D'ÉDITION
+     - Chaque texte existe en deux versions : <span lang="fr"> et <span lang="en">.
+       Modifie les deux (ou supprime la version EN si tu veux un site FR seul).
+     - Liens Steam / Epic : cherche "STEAM_APP_ID" et "EPIC_SLUG".
+     - Captures : remplace le contenu d'un bloc .shot par <img src="assets/xxx.jpg" alt="…">
+       ou par l'<iframe> YouTube du trailer (voir commentaire dans One More Season).
+     - Photo du créateur : remplace le contenu de .avatar par <img src="assets/alexandre.jpg" alt="Alexandre">.
+     ================================================================= -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="EgoTech Games — accueil">
+      <img class="pixel" src="assets/logo-horizontal-light.png" alt="EgoTech Games" width="127" height="44">
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="#jeux"><span lang="fr">Jeux</span><span lang="en">Games</span></a>
+      <a href="#sorties"><span lang="fr">Sorties</span><span lang="en">Roadmap</span></a>
+      <a href="#createur" class="hide-sm"><span lang="fr">Le créateur</span><span lang="en">About</span></a>
+      <a href="#contact">Contact</a>
+      <button class="lang-btn" id="lang-toggle" type="button" aria-label="Changer de langue / Switch language">EN</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <div class="hero">
+    <div>
+      <p class="eyebrow"><span lang="fr">Studio indépendant · Bordeaux, France</span><span lang="en">Independent studio · Bordeaux, France</span></p>
+      <h1>
+        <span lang="fr">Des jeux faits main,<br><span class="hl">avec passion.</span></span>
+        <span lang="en">Handmade games,<br><span class="hl">made with passion.</span></span>
+      </h1>
+      <p class="lead">
+        <span lang="fr">EgoTech Games est un studio solo qui conçoit des jeux de gestion et de stratégie.</span>
+        <span lang="en">EgoTech Games is a one-person studio making management and strategy games.</span>
+      </p>
+      <div class="btns">
+        <a class="btn steam" href="#jeux"><span lang="fr">Découvrir les jeux</span><span lang="en">See the games</span></a>
+        <a class="btn ghost" href="#sorties"><span lang="fr">Prochaines sorties</span><span lang="en">What's next</span></a>
+      </div>
+    </div>
+    <div class="stick"><img class="pixel" src="assets/joystick.png" alt="" width="704" height="800"></div>
+  </div>
+
+  <!-- ===================== JEUX ===================== -->
+  <section id="jeux" aria-labelledby="jeux-title">
+    <div class="sec-head">
+      <p class="eyebrow"><span lang="fr">Nos jeux</span><span lang="en">Our games</span></p>
+      <h2 id="jeux-title"><span lang="fr">Le catalogue</span><span lang="en">The lineup</span></h2>
+    </div>
+
+    <!-- Jeu vedette : One More Season -->
+    <article class="feature" id="one-more-season">
+      <div class="shot">
+        <!-- Trailer : remplace ce texte par
+             <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Trailer One More Season" allowfullscreen></iframe>
+             ou une capture : <img src="assets/oms-cover.jpg" alt="One More Season"> -->
+        <span lang="fr">Trailer / capture à venir</span><span lang="en">Trailer / screenshot coming soon</span>
+      </div>
+      <div class="body">
+        <span class="status"><span lang="fr">Sortie juin 2027</span><span lang="en">Coming June 2027</span></span>
+        <h3>One More Season</h3>
+        <p>
+          <span lang="fr">Prends la tête d'une équipe e-sport et mène-la du tier Fer jusqu'au Diamant. Recrute, entraîne, gère le moral et les finances, puis regarde tes joueurs s'affronter en direct. Chaque saison est une nouvelle run : les choix que tu fais entre deux matchs changent tout.</span>
+          <span lang="en">Take charge of an esports team and push it from Iron all the way to Diamond. Recruit, train, manage morale and money, then watch your players fight it out live. Every season is a new run — the calls you make between matches change everything.</span>
+        </p>
+        <div class="tags">
+          <span class="tag">Roguelite</span>
+          <span class="tag"><span lang="fr">Gestion</span><span lang="en">Management</span></span>
+          <span class="tag">E-sport</span>
+          <span class="tag"><span lang="fr">Solo</span><span lang="en">Single-player</span></span>
+        </div>
+        <dl class="facts">
+          <dt><span lang="fr">Plateformes</span><span lang="en">Platforms</span></dt><dd>Windows, Linux, macOS</dd>
+          <dt><span lang="fr">Saisons</span><span lang="en">Seasons</span></dt><dd><span lang="fr">29 semaines · 6 divisions</span><span lang="en">29 weeks · 6 divisions</span></dd>
+          <dt><span lang="fr">Langues</span><span lang="en">Languages</span></dt><dd><span lang="fr">Allemand, anglais, espagnol, français, italien, portugais (Portugal), russe</span><span lang="en">English, French, German, Italian, Portuguese (Portugal), Russian, Spanish</span></dd>
+        </dl>
+        <div class="btns">
+          <!-- Remplace STEAM_APP_ID et EPIC_SLUG par les vrais identifiants -->
+          <a class="btn steam" href="https://store.steampowered.com/app/STEAM_APP_ID" target="_blank" rel="noopener"><span lang="fr">Wishlist sur Steam</span><span lang="en">Wishlist on Steam</span></a>
+          <a class="btn epic" href="https://store.epicgames.com/p/EPIC_SLUG" target="_blank" rel="noopener">Epic Games Store</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="grid2">
+      <!-- Chocolatine Wars -->
+      <article class="card" id="chocolatine-wars">
+        <div class="shot"><span lang="fr">Visuel à venir</span><span lang="en">Artwork coming soon</span></div>
+        <div class="body">
+          <span class="status dev"><span lang="fr">En développement</span><span lang="en">In development</span></span>
+          <h3>Chocolatine Wars</h3>
+          <p class="muted" style="font-family:var(--f-label);font-size:12px">It's Not a Pain au Chocolat</p>
+          <p>
+            <span lang="fr">Un jeu de tactique au tour par tour dans la grande tradition des wargames de poche. Deux camps, une seule vérité : c'est une chocolatine. Déploie tes viennoiseries et tranche enfin le débat.</span>
+            <span lang="en">A turn-based tactics game in the tradition of classic handheld wargames. Two armies, one truth: it's a chocolatine. Deploy your pastries and settle the debate for good.</span>
+          </p>
+          <div class="tags">
+            <span class="tag"><span lang="fr">Tactique</span><span lang="en">Tactics</span></span>
+            <span class="tag"><span lang="fr">Tour par tour</span><span lang="en">Turn-based</span></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projet mystère -->
+      <article class="card" id="projet-mystere">
+        <div class="shot"><span>? ? ?</span></div>
+        <div class="body">
+          <span class="status dev"><span lang="fr">Prototype</span><span lang="en">Prototype</span></span>
+          <h3><span lang="fr">Projet mystère</span><span lang="en">Secret project</span></h3>
+          <p>
+            <span lang="fr">Une nouvelle ville, de nombreux habitants, autant de possibilités de nouer des liens dans un jeu conversationnel. On en dira plus bientôt.</span>
+            <span lang="en">A new town, plenty of residents, and just as many ways to build a bond in a conversation-driven game. More to share soon.</span>
+          </p>
+          <div class="tags">
+            <span class="tag"><span lang="fr">Narratif</span><span lang="en">Narrative</span></span>
+            <span class="tag"><span lang="fr">Simulation</span><span lang="en">Simulation</span></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== PROCHAINES SORTIES ===================== -->
+  <section id="sorties" aria-labelledby="sorties-title">
+    <div class="sec-head">
+      <p class="eyebrow"><span lang="fr">Feuille de route</span><span lang="en">Roadmap</span></p>
+      <h2 id="sorties-title"><span lang="fr">Prochaines sorties</span><span lang="en">What's next</span></h2>
+    </div>
+    <ol class="timeline">
+      <li>
+        <span class="when"><span lang="fr">Oct. 2026</span><span lang="en">Oct 2026</span></span>
+        <span class="dot" aria-hidden="true"></span>
+        <div class="what">
+          <strong><span lang="fr">Pages Steam & Epic en ligne</span><span lang="en">Steam & Epic pages live</span></strong>
+          <p><span lang="fr">One More Season est ajoutable à ta liste de souhaits.</span><span lang="en">One More Season is ready to wishlist.</span></p>
+        </div>
+      </li>
+      <li>
+        <span class="when"><span lang="fr">Juin 2027</span><span lang="en">Jun 2027</span></span>
+        <span class="dot" aria-hidden="true"></span>
+        <div class="what">
+          <strong>Steam Next Fest</strong>
+          <p><span lang="fr">Démo jouable de One More Season pendant le festival.</span><span lang="en">Playable One More Season demo during the festival.</span></p>
+        </div>
+      </li>
+      <li>
+        <span class="when"><span lang="fr">Juin 2027</span><span lang="en">Jun 2027</span></span>
+        <span class="dot" aria-hidden="true"></span>
+        <div class="what">
+          <strong><span lang="fr">Sortie de One More Season</span><span lang="en">One More Season launch</span></strong>
+          <p><span lang="fr">Sur Steam et l'Epic Games Store.</span><span lang="en">On Steam and the Epic Games Store.</span></p>
+        </div>
+      </li>
+      <li>
+        <span class="when"><span lang="fr">À suivre</span><span lang="en">TBA</span></span>
+        <span class="dot" aria-hidden="true"></span>
+        <div class="what">
+          <strong>Chocolatine Wars</strong>
+          <p><span lang="fr">Date annoncée plus tard.</span><span lang="en">Date to be announced.</span></p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===================== CRÉATEUR ===================== -->
+  <section id="createur" aria-labelledby="createur-title">
+    <div class="creator">
+      <div class="avatar">
+        <!-- Remplace par : <img src="assets/alexandre.jpg" alt="Alexandre"> -->
+        <span lang="fr">Photo à venir</span><span lang="en">Photo coming soon</span>
+      </div>
+      <div class="text">
+        <p class="eyebrow"><span lang="fr">Derrière la manette</span><span lang="en">Behind the joystick</span></p>
+        <h2 id="createur-title">Alexandre</h2>
+        <p>
+          <span lang="fr">Développeur depuis une quinzaine d'années, j'ai passé ma carrière à construire des logiciels, à diriger des équipes techniques et à accompagner des projets de A à Z. EgoTech Games, c'est le moment où j'ai décidé de mettre ce savoir-faire au service de ce que j'aime le plus : les jeux vidéo.</span>
+          <span lang="en">I've been a software developer for about fifteen years, building products, leading tech teams and seeing projects through from start to finish. EgoTech Games is where I decided to put all of that into what I love most: video games.</span>
+        </p>
+        <p>
+          <span lang="fr">Je conçois, code et équilibre chaque jeu moi-même, près de Bordeaux. J'aime les systèmes qui ont l'air simples et qui cachent de la profondeur, et les parties dont on sort en se disant « allez, une dernière ».</span>
+          <span lang="en">I design, code and balance every game myself, near Bordeaux. I love systems that look simple but hide real depth — and sessions you walk away from thinking “okay, just one more”.</span>
+        </p>
+        <div class="stats">
+          <div><b>15+</b><span lang="fr">ans de dev</span><span lang="en">years coding</span></div>
+          <div><b>1</b><span lang="fr">personne au studio</span><span lang="en">person studio</span></div>
+          <div><b>Godot 4</b><span lang="fr">moteur</span><span lang="en">engine</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="contact">
+      <div>
+        <h2 id="contact-title"><span lang="fr">Presse, partenaires, joueurs</span><span lang="en">Press, partners, players</span></h2>
+        <p><span lang="fr">Une question, une demande de clé presse ? Écris-moi.</span><span lang="en">Questions or press key requests? Drop me a line.</span></p>
+      </div>
+      <div style="display:grid;gap:12px">
+        <!-- Remplace l'adresse -->
+        <a class="mail" href="mailto:contact@egotechgames.com">contact@egotechgames.com</a>
+        <div class="socials">
+          <!-- Remplace les # par tes liens, ou supprime les réseaux non utilisés -->
+          <a href="#">Steam</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <img class="pixel" src="assets/logo-horizontal-light.png" alt="EgoTech Games" width="104" height="36">
+      <span>© <span id="year">2026</span> EgoTech · <span lang="fr">Tous droits réservés.</span><span lang="en">All rights reserved.</span></span>
+    </div>
+    <!-- Mentions légales obligatoires (LCEN, art. 6) : complète les champs entre [crochets] -->
+    <details class="legal">
+      <summary><span lang="fr">Mentions légales</span><span lang="en">Legal notice</span></summary>
+      <div class="inner">
+        <h4><span lang="fr">Éditeur</span><span lang="en">Publisher</span></h4>
+        <p><span lang="fr">EgoTech, EURL au capital de 1 000,00 € — 1C, chemin de Négrot, 33360 Camblanes-et-Meynac, France — SIRET 949 726 004 00011 — RCS Bordeaux — TVA intracommunautaire FR31949726004.</span><span lang="en">EgoTech, EURL with a share capital of €1,000.00 — 1C, chemin de Négrot, 33360 Camblanes-et-Meynac, France — SIRET 949 726 004 00011 — Bordeaux Trade and Companies Register — VAT FR31949726004.</span><br>
+        <span lang="fr">Directeur de la publication</span><span lang="en">Publication director</span> : Alexandre Urbain. Contact : contact@egotechgames.com</p>
+        <h4><span lang="fr">Hébergeur</span><span lang="en">Host</span></h4>
+        <p><span lang="fr">Site hébergé par GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Nom de domaine et service DNS : Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis.</span><span lang="en">Hosted on GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Domain name and DNS: Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA.</span></p>
+        <h4><span lang="fr">Données personnelles</span><span lang="en">Personal data</span></h4>
+        <p><span lang="fr">Ce site ne dépose aucun cookie et ne collecte aucune donnée personnelle. Seule ta préférence de langue est gardée dans ton navigateur.</span><span lang="en">This site sets no cookies and collects no personal data. Only your language preference is kept in your browser.</span></p>
+        <h4><span lang="fr">Marques</span><span lang="en">Trademarks</span></h4>
+        <p><span lang="fr">« EgoTech » est une marque déposée. Steam est une marque de Valve Corporation ; Epic Games Store est une marque d'Epic Games, Inc.</span><span lang="en">“EgoTech” is a registered trademark. Steam is a trademark of Valve Corporation; Epic Games Store is a trademark of Epic Games, Inc.</span></p>
+      </div>
+    </details>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('lang-toggle');
+    function set(l) {
+      root.setAttribute('data-lang', l); root.setAttribute('lang', l);
+      btn.textContent = l === 'fr' ? 'EN' : 'FR';
+      try { localStorage.setItem('eg-lang', l); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('eg-lang'); } catch (e) {}
+    var nav = (navigator.language || 'fr').toLowerCase();
+    set(saved || (nav.indexOf('fr') === 0 ? 'fr' : 'en'));
+    btn.addEventListener('click', function () { set(root.getAttribute('data-lang') === 'fr' ? 'en' : 'fr'); });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
