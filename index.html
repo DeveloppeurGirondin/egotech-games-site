@@ -3,18 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="EgoTech Games — studio de jeux vidéo indépendant près de Bordeaux. One More Season, Chocolatine Wars et plus.">
-<meta property="og:title" content="EgoTech Games">
-<meta property="og:description" content="Studio de jeux vidéo indépendant · Bordeaux, France">
-<meta property="og:image" content="assets/logo-horizontal-dark.png">
+<meta name="description" content="EgoTech Games — studio de jeux vidéo indépendant près de Bordeaux. Just One More Season, Chocolatine Wars et plus.">
+<meta property="og:site_name" content="EgoTech Games">
+<meta property="og:title" content="EgoTech Games — studio de jeux de gestion et de stratégie">
+<meta property="og:description" content="Studio solo près de Bordeaux. Just One More Season, Chocolatine Wars et plus.">
+<meta property="og:image" content="https://egotechgames.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Just One More Season — l'open space de l'équipe e-sport">
+<meta property="og:url" content="https://egotechgames.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://egotechgames.com/">
 <meta name="theme-color" content="#251C3B">
 <link rel="icon" type="image/png" href="assets/icon-square.png">
 <link rel="apple-touch-icon" href="assets/icon-square.png">
 <title>EgoTech Games</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Silkscreen&family=Figtree:wght@400;500;700&display=swap">
+<link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/silkscreen-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* Polices auto-hébergées (SIL Open Font License) — voir assets/fonts/LICENSE.txt */
+  @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(assets/fonts/figtree-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(assets/fonts/figtree-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Pixelify Sans'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(assets/fonts/pixelify-sans-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Pixelify Sans'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(assets/fonts/pixelify-sans-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Silkscreen'; font-style: normal; font-weight: 400; font-display: swap;
+    src: url(assets/fonts/silkscreen-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Silkscreen'; font-style: normal; font-weight: 400; font-display: swap;
+    src: url(assets/fonts/silkscreen-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
   /* ============================================================
      EgoTech Games — palette tirée du logo (joystick pixel art)
      Le site assume un seul univers visuel : "violet nuit" arcade.
@@ -218,7 +241,126 @@
     header.top .brand img { height: 36px; }
   }
   @media (max-width: 520px) { nav a.hide-sm { display: none; } }
+
+  /* ---------- Carrousel de captures ---------- */
+  .shot picture { position: absolute; inset: 0; display: block; }
+  /* fond uni plutot que la trame du .shot : l'image ne remplit pas forcement le cadre */
+  .carousel { position: relative; background: var(--contour); }
+  .cslide {
+    position: absolute; inset: 0; opacity: 0; cursor: zoom-in; border: 0; padding: 0; margin: 0;
+    background: none; display: block; width: 100%; transition: opacity .25s ease;
+  }
+  @media (prefers-reduced-motion: reduce) { .cslide { transition: none; } }
+  .cslide[hidden] { display: none; }
+  .cslide.on { opacity: 1; z-index: 1; }
+  /* l'image entre entierement dans le cadre : aucun recadrage, tout reste lisible */
+  .carousel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
+  .cnav {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+    font-family: var(--f-label); font-size: 16px; line-height: 1; padding: 10px 12px; cursor: pointer;
+    color: var(--creme); background: rgba(27,20,38,.78); border: 2px solid var(--contour);
+  }
+  .cnav:hover { background: var(--framboise); }
+  .cprev { left: 8px; } .cnext { right: 8px; }
+  .cbar {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: center; gap: 12px;
+    padding: 8px 12px; background: linear-gradient(transparent, rgba(27,20,38,.92) 55%);
+    font-family: var(--f-label); font-size: 11px; letter-spacing: .04em; color: var(--creme);
+  }
+  .cbar .ccap { flex: 1; }
+  .cbar .cnum { color: var(--lavande); }
+  .cdots { display: flex; gap: 5px; }
+  .cdots button { width: 9px; height: 9px; padding: 0; cursor: pointer; border: 2px solid var(--contour); background: var(--lavande); }
+  .cdots button[aria-current="true"] { background: var(--ambre); }
+  @media (max-width: 620px) { .cbar .ccap { display: none; } .cnav { padding: 8px 10px; } }
+
+  /* ---------- Visionneuse ---------- */
+  dialog.lb {
+    width: min(1180px, 94vw); max-width: none; padding: 0; color: var(--creme);
+    background: var(--nuit-2); border: var(--px) solid var(--contour); box-shadow: 10px 10px 0 var(--contour);
+  }
+  dialog.lb::backdrop { background: rgba(27,20,38,.92); }
+  dialog.lb img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: var(--contour); }
+  .lb-bar { display: flex; align-items: center; gap: 12px; padding: 12px 14px; flex-wrap: wrap; }
+  .lb-bar p { flex: 1 1 260px; margin: 0; font-size: 13px; color: var(--lavande); max-width: none; }
+  .lb-bar button {
+    font-family: var(--f-label); font-size: 13px; line-height: 1; padding: 8px 12px; cursor: pointer;
+    color: var(--contour); background: var(--creme); border: 2px solid var(--contour); box-shadow: 3px 3px 0 var(--contour);
+  }
+  .lb-bar button:active { transform: translate(3px,3px); box-shadow: none; }
+  .lb-bar .lb-close { background: var(--framboise); color: var(--creme); }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://egotechgames.com/#studio",
+      "name": "EgoTech Games",
+      "legalName": "EgoTech",
+      "url": "https://egotechgames.com/",
+      "logo": "https://egotechgames.com/assets/logo-horizontal-dark.png",
+      "image": "https://egotechgames.com/assets/og-image.jpg",
+      "email": "contact@egotechgames.com",
+      "vatID": "FR31949726004",
+      "description": "Studio de jeux vidéo indépendant spécialisé dans les jeux de gestion et de stratégie.",
+      "founder": { "@type": "Person", "name": "Alexandre Urbain" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1C, chemin de Négrot",
+        "postalCode": "33360",
+        "addressLocality": "Camblanes-et-Meynac",
+        "addressRegion": "Nouvelle-Aquitaine",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://egotechgames.com/#site",
+      "url": "https://egotechgames.com/",
+      "name": "EgoTech Games",
+      "inLanguage": ["fr", "en"],
+      "publisher": { "@id": "https://egotechgames.com/#studio" }
+    },
+    {
+      "@type": "VideoGame",
+      "@id": "https://egotechgames.com/#just-one-more-season",
+      "name": "Just One More Season",
+      "url": "https://egotechgames.com/#just-one-more-season",
+      "description": "Prends la tête d'une équipe e-sport et mène-la du tier Fer jusqu'au Diamant : recrute, entraîne, gère le moral et les finances, puis regarde tes joueurs s'affronter en direct.",
+      "genre": ["Gestion", "Stratégie", "Roguelite", "E-sport"],
+      "gamePlatform": ["PC", "Windows", "Linux", "macOS"],
+      "playMode": "SinglePlayer",
+      "applicationCategory": "Game",
+      "operatingSystem": "Windows, Linux, macOS",
+      "inLanguage": ["de", "en", "es", "fr", "it", "pt-PT", "ru"],
+      "datePublished": "2027-06",
+      "author": { "@id": "https://egotechgames.com/#studio" },
+      "publisher": { "@id": "https://egotechgames.com/#studio" },
+      "image": "https://egotechgames.com/assets/og-image.jpg",
+      "screenshot": [
+        "https://egotechgames.com/assets/screenshots/just-one-more-season/fr/01_open_space-1600.webp",
+        "https://egotechgames.com/assets/screenshots/just-one-more-season/fr/05_match_direct-1600.webp",
+        "https://egotechgames.com/assets/screenshots/just-one-more-season/fr/06_carte_saison-1600.webp",
+        "https://egotechgames.com/assets/screenshots/just-one-more-season/fr/11_tournoi-1600.webp"
+      ]
+    },
+    {
+      "@type": "VideoGame",
+      "@id": "https://egotechgames.com/#chocolatine-wars",
+      "name": "Chocolatine Wars",
+      "url": "https://egotechgames.com/#chocolatine-wars",
+      "description": "Un jeu de tactique au tour par tour dans la grande tradition des wargames de poche.",
+      "genre": ["Tactique", "Tour par tour"],
+      "gamePlatform": "PC",
+      "playMode": "SinglePlayer",
+      "author": { "@id": "https://egotechgames.com/#studio" },
+      "publisher": { "@id": "https://egotechgames.com/#studio" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- =================================================================
@@ -226,14 +368,18 @@
      - Chaque texte existe en deux versions : <span lang="fr"> et <span lang="en">.
        Modifie les deux (ou supprime la version EN si tu veux un site FR seul).
      - Liens Steam / Epic : cherche "STEAM_APP_ID" et "EPIC_SLUG".
-     - Captures : remplace le contenu d'un bloc .shot par <img src="assets/xxx.jpg" alt="…">
-       ou par l'<iframe> YouTube du trailer (voir commentaire dans One More Season).
-     - Photo du créateur : remplace le contenu de .avatar par <img src="assets/alexandre.jpg" alt="Alexandre">.
+     - Captures : les fichiers vivent dans assets/screenshots/just-one-more-season/{fr,en}/.
+       Chaque capture existe en -800 et -1600, en .avif et .webp (générés depuis les .png d'origine).
+       Le <picture data-loc> bascule tout seul entre /fr/ et /en/ : n'écris que le chemin /fr/.
+       Les textes alternatifs se mettent dans data-alt-fr / data-alt-en (l'attribut alt est recopié par le JS).
+       Pour ajouter une capture : dépose le .png dans les deux langues, lance tools/optimize-images.py,
+       puis copie un bloc <button class="cslide"> dans le carrousel et un bouton dans #c-dots.
+     - Photo du créateur : assets/alexandre/alexandre-{320,640}.{avif,webp}.
      ================================================================= -->
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="EgoTech Games — accueil">
+    <a class="brand" href="#top" aria-label="EgoTech Games — accueil" data-label-fr="EgoTech Games — accueil" data-label-en="EgoTech Games — home">
       <img class="pixel" src="assets/logo-horizontal-light.png" alt="EgoTech Games" width="127" height="44">
     </a>
     <nav aria-label="Navigation principale">
@@ -275,17 +421,140 @@
       <h2 id="jeux-title"><span lang="fr">Le catalogue</span><span lang="en">The lineup</span></h2>
     </div>
 
-    <!-- Jeu vedette : One More Season -->
-    <article class="feature" id="one-more-season">
-      <div class="shot">
-        <!-- Trailer : remplace ce texte par
-             <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Trailer One More Season" allowfullscreen></iframe>
-             ou une capture : <img src="assets/oms-cover.jpg" alt="One More Season"> -->
-        <span lang="fr">Trailer / capture à venir</span><span lang="en">Trailer / screenshot coming soon</span>
+    <!-- Jeu vedette : Just One More Season -->
+    <article class="feature" id="just-one-more-season">
+      <div class="shot carousel" id="oms-carousel" role="group" aria-roledescription="carrousel" aria-label="Captures de Just One More Season">
+        <!-- Pour un trailer : remplace ce carrousel par
+             <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Trailer Just One More Season" allowfullscreen></iframe> -->
+        <button class="cslide on" type="button" data-lb data-cap-fr="L'open space" data-cap-en="The team room"
+                data-label-fr="Agrandir : L'open space" data-label-en="Enlarge: The team room" aria-label="Agrandir : L'open space">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/01_open_space-800.avif 800w, assets/screenshots/just-one-more-season/fr/01_open_space-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/01_open_space-800.webp 800w, assets/screenshots/just-one-more-season/fr/01_open_space-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/01_open_space-800.webp" width="1600" height="900" alt="L'open space de l'équipe en vue isométrique : l'effectif titulaire, la trésorerie, les fans et la cohésion du club." data-alt-fr="L'open space de l'équipe en vue isométrique : l'effectif titulaire, la trésorerie, les fans et la cohésion du club." data-alt-en="Isometric view of the team room: the starting roster, cash, fans and squad cohesion." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Fiche de joueur" data-cap-en="Player profile"
+                data-label-fr="Agrandir : Fiche de joueur" data-label-en="Enlarge: Player profile" aria-label="Agrandir : Fiche de joueur">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/02_fiche_joueur-800.avif 800w, assets/screenshots/just-one-more-season/fr/02_fiche_joueur-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/02_fiche_joueur-800.webp 800w, assets/screenshots/just-one-more-season/fr/02_fiche_joueur-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/02_fiche_joueur-800.webp" width="1600" height="900" alt="Fiche détaillée d'un joueur : visée, réflexes, sang-froid, cohésion et évolution de ses compétences sur la saison." data-alt-fr="Fiche détaillée d'un joueur : visée, réflexes, sang-froid, cohésion et évolution de ses compétences sur la saison." data-alt-en="Detailed player profile: aim, reflexes, composure, cohesion and skill progression over the season." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Scouting" data-cap-en="Scouting"
+                data-label-fr="Agrandir : Scouting" data-label-en="Enlarge: Scouting" aria-label="Agrandir : Scouting">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/03_recrutement-800.avif 800w, assets/screenshots/just-one-more-season/fr/03_recrutement-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/03_recrutement-800.webp 800w, assets/screenshots/just-one-more-season/fr/03_recrutement-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/03_recrutement-800.webp" width="1600" height="900" alt="Écran de scouting : trois joueurs repérés à comparer avant d'en recruter un seul." data-alt-fr="Écran de scouting : trois joueurs repérés à comparer avant d'en recruter un seul." data-alt-en="Scouting screen: three prospects to compare before signing just one." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Avant-match" data-cap-en="Pre-match"
+                data-label-fr="Agrandir : Avant-match" data-label-en="Enlarge: Pre-match" aria-label="Agrandir : Avant-match">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/04_avant_match-800.avif 800w, assets/screenshots/just-one-more-season/fr/04_avant_match-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/04_avant_match-800.webp 800w, assets/screenshots/just-one-more-season/fr/04_avant_match-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/04_avant_match-800.webp" width="1600" height="900" alt="Écran d'avant-match : composition de l'équipe face à l'adversaire et chances de victoire estimées." data-alt-fr="Écran d'avant-match : composition de l'équipe face à l'adversaire et chances de victoire estimées." data-alt-en="Pre-match screen: your lineup against the opposing team and the estimated odds of winning." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Match en direct" data-cap-en="Live match"
+                data-label-fr="Agrandir : Match en direct" data-label-en="Enlarge: Live match" aria-label="Agrandir : Match en direct">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/05_match_direct-800.avif 800w, assets/screenshots/just-one-more-season/fr/05_match_direct-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/05_match_direct-800.webp 800w, assets/screenshots/just-one-more-season/fr/05_match_direct-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/05_match_direct-800.webp" width="1600" height="900" alt="Match e-sport joué en direct, round par round, avec motivation des joueurs et réglage de la stratégie." data-alt-fr="Match e-sport joué en direct, round par round, avec motivation des joueurs et réglage de la stratégie." data-alt-en="An esports match playing out live, round by round, with player motivation and strategy tuning." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Carte de la saison" data-cap-en="Season map"
+                data-label-fr="Agrandir : Carte de la saison" data-label-en="Enlarge: Season map" aria-label="Agrandir : Carte de la saison">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/06_carte_saison-800.avif 800w, assets/screenshots/just-one-more-season/fr/06_carte_saison-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/06_carte_saison-800.webp 800w, assets/screenshots/just-one-more-season/fr/06_carte_saison-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/06_carte_saison-800.webp" width="1600" height="900" alt="Carte de la saison : on choisit chaque semaine entre entraînement, repos, match et événements." data-alt-fr="Carte de la saison : on choisit chaque semaine entre entraînement, repos, match et événements." data-alt-en="Season map: every week you pick between training, rest, matches and events." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Événements" data-cap-en="Events"
+                data-label-fr="Agrandir : Événements" data-label-en="Enlarge: Events" aria-label="Agrandir : Événements">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/07_evenement-800.avif 800w, assets/screenshots/just-one-more-season/fr/07_evenement-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/07_evenement-800.webp 800w, assets/screenshots/just-one-more-season/fr/07_evenement-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/07_evenement-800.webp" width="1600" height="900" alt="Événement communautaire : trois façons d'occuper la semaine, avec leurs gains en fans et leur coût en fatigue." data-alt-fr="Événement communautaire : trois façons d'occuper la semaine, avec leurs gains en fans et leur coût en fatigue." data-alt-en="Community event: three ways to spend the week, each with its own fan gains and fatigue cost." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Finances" data-cap-en="Finances"
+                data-label-fr="Agrandir : Finances" data-label-en="Enlarge: Finances" aria-label="Agrandir : Finances">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/08_finances-800.avif 800w, assets/screenshots/just-one-more-season/fr/08_finances-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/08_finances-800.webp 800w, assets/screenshots/just-one-more-season/fr/08_finances-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/08_finances-800.webp" width="1600" height="900" alt="Bilan financier hebdomadaire : trésorerie, revenus des sponsors, salaires et historique des mouvements." data-alt-fr="Bilan financier hebdomadaire : trésorerie, revenus des sponsors, salaires et historique des mouvements." data-alt-en="Weekly financial report: cash, sponsor income, wages and the full history of transactions." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Sponsors" data-cap-en="Sponsors"
+                data-label-fr="Agrandir : Sponsors" data-label-en="Enlarge: Sponsors" aria-label="Agrandir : Sponsors">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/09_sponsors-800.avif 800w, assets/screenshots/just-one-more-season/fr/09_sponsors-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/09_sponsors-800.webp 800w, assets/screenshots/just-one-more-season/fr/09_sponsors-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/09_sponsors-800.webp" width="1600" height="900" alt="Contrats de sponsoring en cours : versements hebdomadaires, durée restante et satisfaction des marques." data-alt-fr="Contrats de sponsoring en cours : versements hebdomadaires, durée restante et satisfaction des marques." data-alt-en="Active sponsorship deals: weekly payouts, remaining term and how happy the brands are." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Staff" data-cap-en="Staff"
+                data-label-fr="Agrandir : Staff" data-label-en="Enlarge: Staff" aria-label="Agrandir : Staff">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/10_staff-800.avif 800w, assets/screenshots/just-one-more-season/fr/10_staff-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/10_staff-800.webp 800w, assets/screenshots/just-one-more-season/fr/10_staff-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/10_staff-800.webp" width="1600" height="900" alt="Gestion du staff : responsable communauté, recruteur et entraîneur principal, avec leurs compétences et leur coût." data-alt-fr="Gestion du staff : responsable communauté, recruteur et entraîneur principal, avec leurs compétences et leur coût." data-alt-en="Staff management: community manager, scout and head coach, with their traits and weekly cost." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Tournoi de fin de saison" data-cap-en="Season finals"
+                data-label-fr="Agrandir : Tournoi de fin de saison" data-label-en="Enlarge: Season finals" aria-label="Agrandir : Tournoi de fin de saison">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/11_tournoi-800.avif 800w, assets/screenshots/just-one-more-season/fr/11_tournoi-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/11_tournoi-800.webp 800w, assets/screenshots/just-one-more-season/fr/11_tournoi-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/11_tournoi-800.webp" width="1600" height="900" alt="Arbre du tournoi de fin de saison : demi-finales, petite finale et finale au meilleur des trois manches." data-alt-fr="Arbre du tournoi de fin de saison : demi-finales, petite finale et finale au meilleur des trois manches." data-alt-en="End-of-season tournament bracket: semi-finals, third-place match and a best-of-three final." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Comité administratif" data-cap-en="The board"
+                data-label-fr="Agrandir : Comité administratif" data-label-en="Enlarge: The board" aria-label="Agrandir : Comité administratif">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/12_comite-800.avif 800w, assets/screenshots/just-one-more-season/fr/12_comite-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/12_comite-800.webp 800w, assets/screenshots/just-one-more-season/fr/12_comite-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/12_comite-800.webp" width="1600" height="900" alt="Le comité administratif et ses attentes pour la saison : éviter la relégation en ligue Diamant." data-alt-fr="Le comité administratif et ses attentes pour la saison : éviter la relégation en ligue Diamant." data-alt-en="The board and what it expects this season: stay clear of relegation in the Diamond league." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="Vitrine des trophées" data-cap-en="Trophy room"
+                data-label-fr="Agrandir : Vitrine des trophées" data-label-en="Enlarge: Trophy room" aria-label="Agrandir : Vitrine des trophées">
+          <picture data-loc>
+            <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/13_vitrine-800.avif 800w, assets/screenshots/just-one-more-season/fr/13_vitrine-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/screenshots/just-one-more-season/fr/13_vitrine-800.webp 800w, assets/screenshots/just-one-more-season/fr/13_vitrine-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/screenshots/just-one-more-season/fr/13_vitrine-800.webp" width="1600" height="900" alt="Vitrine des trophées : les titres remportés au fil des saisons précédentes." data-alt-fr="Vitrine des trophées : les titres remportés au fil des saisons précédentes." data-alt-en="Trophy room: the titles won over previous seasons." loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <button class="cnav cprev" type="button" data-label-fr="Capture précédente" data-label-en="Previous screenshot" aria-label="Capture précédente">&lsaquo;</button>
+        <button class="cnav cnext" type="button" data-label-fr="Capture suivante" data-label-en="Next screenshot" aria-label="Capture suivante">&rsaquo;</button>
+        <div class="cbar">
+          <span class="ccap" id="c-cap" aria-live="polite"></span>
+          <span class="cnum" id="c-num"></span>
+          <span class="cdots" id="c-dots">
+            <button type="button" data-go="0" aria-current="true" data-label-fr="Capture 1 : L'open space" data-label-en="Screenshot 1: The team room" aria-label="Capture 1 : L'open space"></button>
+            <button type="button" data-go="1" data-label-fr="Capture 2 : Fiche de joueur" data-label-en="Screenshot 2: Player profile" aria-label="Capture 2 : Fiche de joueur"></button>
+            <button type="button" data-go="2" data-label-fr="Capture 3 : Scouting" data-label-en="Screenshot 3: Scouting" aria-label="Capture 3 : Scouting"></button>
+            <button type="button" data-go="3" data-label-fr="Capture 4 : Avant-match" data-label-en="Screenshot 4: Pre-match" aria-label="Capture 4 : Avant-match"></button>
+            <button type="button" data-go="4" data-label-fr="Capture 5 : Match en direct" data-label-en="Screenshot 5: Live match" aria-label="Capture 5 : Match en direct"></button>
+            <button type="button" data-go="5" data-label-fr="Capture 6 : Carte de la saison" data-label-en="Screenshot 6: Season map" aria-label="Capture 6 : Carte de la saison"></button>
+            <button type="button" data-go="6" data-label-fr="Capture 7 : Événements" data-label-en="Screenshot 7: Events" aria-label="Capture 7 : Événements"></button>
+            <button type="button" data-go="7" data-label-fr="Capture 8 : Finances" data-label-en="Screenshot 8: Finances" aria-label="Capture 8 : Finances"></button>
+            <button type="button" data-go="8" data-label-fr="Capture 9 : Sponsors" data-label-en="Screenshot 9: Sponsors" aria-label="Capture 9 : Sponsors"></button>
+            <button type="button" data-go="9" data-label-fr="Capture 10 : Staff" data-label-en="Screenshot 10: Staff" aria-label="Capture 10 : Staff"></button>
+            <button type="button" data-go="10" data-label-fr="Capture 11 : Tournoi de fin de saison" data-label-en="Screenshot 11: Season finals" aria-label="Capture 11 : Tournoi de fin de saison"></button>
+            <button type="button" data-go="11" data-label-fr="Capture 12 : Comité administratif" data-label-en="Screenshot 12: The board" aria-label="Capture 12 : Comité administratif"></button>
+            <button type="button" data-go="12" data-label-fr="Capture 13 : Vitrine des trophées" data-label-en="Screenshot 13: Trophy room" aria-label="Capture 13 : Vitrine des trophées"></button>
+          </span>
+        </div>
       </div>
       <div class="body">
         <span class="status"><span lang="fr">Sortie juin 2027</span><span lang="en">Coming June 2027</span></span>
-        <h3>One More Season</h3>
+        <h3>Just One More Season</h3>
         <p>
           <span lang="fr">Prends la tête d'une équipe e-sport et mène-la du tier Fer jusqu'au Diamant. Recrute, entraîne, gère le moral et les finances, puis regarde tes joueurs s'affronter en direct. Chaque saison est une nouvelle run : les choix que tu fais entre deux matchs changent tout.</span>
           <span lang="en">Take charge of an esports team and push it from Iron all the way to Diamond. Recruit, train, manage morale and money, then watch your players fight it out live. Every season is a new run — the calls you make between matches change everything.</span>
@@ -359,7 +628,7 @@
         <span class="dot" aria-hidden="true"></span>
         <div class="what">
           <strong><span lang="fr">Pages Steam & Epic en ligne</span><span lang="en">Steam & Epic pages live</span></strong>
-          <p><span lang="fr">One More Season est ajoutable à ta liste de souhaits.</span><span lang="en">One More Season is ready to wishlist.</span></p>
+          <p><span lang="fr">Just One More Season est ajoutable à ta liste de souhaits.</span><span lang="en">Just One More Season is ready to wishlist.</span></p>
         </div>
       </li>
       <li>
@@ -367,14 +636,14 @@
         <span class="dot" aria-hidden="true"></span>
         <div class="what">
           <strong>Steam Next Fest</strong>
-          <p><span lang="fr">Démo jouable de One More Season pendant le festival.</span><span lang="en">Playable One More Season demo during the festival.</span></p>
+          <p><span lang="fr">Démo jouable de Just One More Season pendant le festival.</span><span lang="en">Playable Just One More Season demo during the festival.</span></p>
         </div>
       </li>
       <li>
         <span class="when"><span lang="fr">Juin 2027</span><span lang="en">Jun 2027</span></span>
         <span class="dot" aria-hidden="true"></span>
         <div class="what">
-          <strong><span lang="fr">Sortie de One More Season</span><span lang="en">One More Season launch</span></strong>
+          <strong><span lang="fr">Sortie de Just One More Season</span><span lang="en">Just One More Season launch</span></strong>
           <p><span lang="fr">Sur Steam et l'Epic Games Store.</span><span lang="en">On Steam and the Epic Games Store.</span></p>
         </div>
       </li>
@@ -393,8 +662,12 @@
   <section id="createur" aria-labelledby="createur-title">
     <div class="creator">
       <div class="avatar">
-        <!-- Remplace par : <img src="assets/alexandre.jpg" alt="Alexandre"> -->
-        <span lang="fr">Photo à venir</span><span lang="en">Photo coming soon</span>
+        <picture>
+          <source type="image/avif" srcset="assets/alexandre/alexandre-320.avif 320w, assets/alexandre/alexandre-640.avif 640w" sizes="(max-width: 900px) 160px, 260px">
+          <source type="image/webp" srcset="assets/alexandre/alexandre-320.webp 320w, assets/alexandre/alexandre-640.webp 640w" sizes="(max-width: 900px) 160px, 260px">
+          <img src="assets/alexandre/alexandre-320.webp" width="640" height="640" loading="lazy" decoding="async"
+               alt="Alexandre Urbain, fondateur d'EgoTech Games" data-alt-fr="Alexandre Urbain, fondateur d'EgoTech Games" data-alt-en="Alexandre Urbain, founder of EgoTech Games">
+        </picture>
       </div>
       <div class="text">
         <p class="eyebrow"><span lang="fr">Derrière la manette</span><span lang="en">Behind the joystick</span></p>
@@ -460,14 +733,132 @@
   </div>
 </footer>
 
+<!-- ===================== VISIONNEUSE DE CAPTURES ===================== -->
+<dialog class="lb" id="lightbox" aria-label="Just One More Season">
+  <picture>
+    <source id="lb-avif" type="image/avif" srcset="">
+    <img id="lb-img" alt="" width="1600" height="900" decoding="async">
+  </picture>
+  <div class="lb-bar">
+    <button type="button" id="lb-prev" data-label-fr="Capture précédente" data-label-en="Previous screenshot" aria-label="Capture précédente">&lsaquo;</button>
+    <button type="button" id="lb-next" data-label-fr="Capture suivante" data-label-en="Next screenshot" aria-label="Capture suivante">&rsaquo;</button>
+    <p id="lb-cap"></p>
+    <button type="button" class="lb-close" id="lb-close"><span lang="fr">Fermer</span><span lang="en">Close</span></button>
+  </div>
+</dialog>
+
 <script>
   (function () {
     var root = document.documentElement, btn = document.getElementById('lang-toggle');
+    var dlg = document.getElementById('lightbox');
+    var lbAvif = document.getElementById('lb-avif'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
+    var items = [].slice.call(document.querySelectorAll('[data-lb]'));
+    var cur = 0, opener = null;
+
+    /* --- Langue : textes (CSS), sources d'images et attributs --- */
+    function localize(l) {
+      var i, j, el, kids;
+      var pics = document.querySelectorAll('picture[data-loc]');
+      for (i = 0; i < pics.length; i++) {
+        kids = pics[i].querySelectorAll('source, img');
+        for (j = 0; j < kids.length; j++) {
+          el = kids[j];
+          if (el.getAttribute('srcset')) el.setAttribute('srcset', el.getAttribute('srcset').replace(/\/(?:fr|en)\//g, '/' + l + '/'));
+          if (el.getAttribute('src')) el.setAttribute('src', el.getAttribute('src').replace(/\/(?:fr|en)\//g, '/' + l + '/'));
+        }
+      }
+      var alts = document.querySelectorAll('[data-alt-fr]');
+      for (i = 0; i < alts.length; i++) alts[i].setAttribute('alt', alts[i].getAttribute('data-alt-' + l));
+      var labels = document.querySelectorAll('[data-label-fr]');
+      for (i = 0; i < labels.length; i++) labels[i].setAttribute('aria-label', labels[i].getAttribute('data-label-' + l));
+      caption();
+    }
+
     function set(l) {
       root.setAttribute('data-lang', l); root.setAttribute('lang', l);
       btn.textContent = l === 'fr' ? 'EN' : 'FR';
+      localize(l);
+      if (dlg && dlg.open) show(cur);
       try { localStorage.setItem('eg-lang', l); } catch (e) {}
     }
+
+    /* --- Carrousel : une seule capture visible, les voisines pretes a l'emploi --- */
+    var slides = [].slice.call(document.querySelectorAll('.cslide'));
+    var dots = [].slice.call(document.querySelectorAll('#c-dots button'));
+    var cap = document.getElementById('c-cap'), num = document.getElementById('c-num');
+    var slide = 0;
+
+    function caption() {
+      if (!slides.length) return;
+      var l = root.getAttribute('data-lang') || 'fr';
+      cap.textContent = slides[slide].getAttribute('data-cap-' + l);
+      num.textContent = (slide + 1) + ' / ' + slides.length;
+    }
+    function go(i) {
+      slide = (i + slides.length) % slides.length;
+      for (var k = 0; k < slides.length; k++) {
+        var near = Math.min(Math.abs(k - slide), slides.length - Math.abs(k - slide)) <= 1;
+        slides[k].hidden = !near;              /* les autres ne sont pas telechargees */
+        slides[k].className = 'cslide' + (k === slide ? ' on' : '');
+        if (dots[k]) dots[k].setAttribute('aria-current', k === slide ? 'true' : 'false');
+      }
+      caption();
+    }
+    if (slides.length) {
+      document.querySelector('.cprev').addEventListener('click', function () { go(slide - 1); });
+      document.querySelector('.cnext').addEventListener('click', function () { go(slide + 1); });
+      dots.forEach(function (d) {
+        d.addEventListener('click', function () { go(+d.getAttribute('data-go')); });
+      });
+      var car = document.getElementById('oms-carousel'), x0 = null;
+      car.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { go(slide - 1); } else if (e.key === 'ArrowRight') { go(slide + 1); }
+      });
+      car.addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
+      car.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) { go(slide + (dx < 0 ? 1 : -1)); }
+        x0 = null;
+      }, { passive: true });
+      go(0);
+    }
+
+    /* --- Visionneuse --- */
+    function show(i) {
+      cur = (i + items.length) % items.length;
+      var img = items[cur].querySelector('img');
+      var full = img.getAttribute('src').replace('-800.', '-1600.');
+      lbAvif.setAttribute('srcset', full.replace(/\.webp$/, '.avif'));
+      lbImg.setAttribute('src', full);
+      lbImg.setAttribute('alt', img.getAttribute('alt'));
+      lbCap.textContent = img.getAttribute('alt');
+    }
+    function open(i, from) {
+      if (!dlg || !dlg.showModal) return false;
+      opener = from; show(i); dlg.showModal(); return true;
+    }
+    items.forEach(function (el, i) {
+      el.addEventListener('click', function (e) {
+        if (!open(i, el)) return;
+        e.preventDefault();
+      });
+    });
+    if (dlg) {
+      /* fermer la visionneuse laisse le carrousel sur la capture qu'on regardait */
+      dlg.addEventListener('close', function () { if (slides.length) go(cur); });
+      document.getElementById('lb-prev').addEventListener('click', function () { show(cur - 1); });
+      document.getElementById('lb-next').addEventListener('click', function () { show(cur + 1); });
+      document.getElementById('lb-close').addEventListener('click', function () { dlg.close(); });
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('close', function () { if (opener) { opener.focus(); opener = null; } });
+      dlg.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { show(cur - 1); }
+        else if (e.key === 'ArrowRight') { show(cur + 1); }
+      });
+    }
+
+    /* --- Amorçage --- */
     var saved = null;
     try { saved = localStorage.getItem('eg-lang'); } catch (e) {}
     var nav = (navigator.language || 'fr').toLowerCase();

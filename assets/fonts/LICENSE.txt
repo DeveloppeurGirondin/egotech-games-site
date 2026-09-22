@@ -1,0 +1,8 @@
+Figtree, Pixelify Sans et Silkscreen sont distribuees sous la SIL Open Font
+License 1.1, qui autorise l'auto-hebergement et la redistribution.
+
+- Figtree ......... (c) Erik Kennedy      https://fonts.google.com/specimen/Figtree
+- Pixelify Sans ... (c) Stefie Justprince https://fonts.google.com/specimen/Pixelify+Sans
+- Silkscreen ...... (c) Jason Kottke      https://fonts.google.com/specimen/Silkscreen
+
+Texte complet de la licence : https://openfontlicense.org/
