@@ -255,6 +255,19 @@
   .cslide.on { opacity: 1; z-index: 1; }
   /* l'image entre entierement dans le cadre : aucun recadrage, tout reste lisible */
   .carousel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
+  .cvideo .play {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 2;
+    width: 72px; height: 72px; display: grid; place-items: center;
+    background: var(--framboise); border: 3px solid var(--contour); box-shadow: var(--px) var(--px) 0 var(--contour);
+    transition: transform .1s;
+  }
+  .cvideo .play::after {
+    content: ""; margin-left: 6px;
+    border-left: 22px solid var(--creme); border-top: 13px solid transparent; border-bottom: 13px solid transparent;
+  }
+  .cvideo:hover .play, .cvideo:focus-visible .play { transform: translate(-50%,-50%) scale(1.08); background: var(--ambre); }
+  .cvideo:hover .play::after, .cvideo:focus-visible .play::after { border-left-color: var(--contour); }
+  @media (max-width: 620px) { .cvideo .play { width: 54px; height: 54px; } .cvideo .play::after { border-left-width: 17px; border-top-width: 10px; border-bottom-width: 10px; } }
   .cnav {
     position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
     font-family: var(--f-label); font-size: 16px; line-height: 1; padding: 10px 12px; cursor: pointer;
@@ -281,6 +294,9 @@
   }
   dialog.lb::backdrop { background: rgba(27,20,38,.92); }
   dialog.lb img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: var(--contour); }
+  .lb-pic[hidden], .lb-video[hidden] { display: none; }
+  .lb-video { aspect-ratio: 16 / 9; background: var(--contour); }
+  .lb-video iframe { display: block; width: 100%; height: 100%; border: 0; }
   .lb-bar { display: flex; align-items: center; gap: 12px; padding: 12px 14px; flex-wrap: wrap; }
   .lb-bar p { flex: 1 1 260px; margin: 0; font-size: 13px; color: var(--lavande); max-width: none; }
   .lb-bar button {
@@ -329,7 +345,7 @@
       "name": "Just One More Season",
       "url": "https://egotechgames.com/#just-one-more-season",
       "description": "Prends la tête d'une équipe e-sport et mène-la du tier Fer jusqu'au Diamant : recrute, entraîne, gère le moral et les finances, puis regarde tes joueurs s'affronter en direct.",
-      "genre": ["Gestion", "Stratégie", "Roguelite", "E-sport"],
+      "genre": ["Gestion", "Stratégie", "Roguelike", "E-sport"],
       "gamePlatform": ["PC", "Windows", "Linux", "macOS"],
       "playMode": "SinglePlayer",
       "applicationCategory": "Game",
@@ -339,6 +355,17 @@
       "author": { "@id": "https://egotechgames.com/#studio" },
       "publisher": { "@id": "https://egotechgames.com/#studio" },
       "image": "https://egotechgames.com/assets/og-image.jpg",
+      "trailer": {
+        "@type": "VideoObject",
+        "name": "Just One More Season — Announcement Trailer",
+        "description": "Bande-annonce d'annonce de Just One More Season, jeu de gestion d'équipe e-sport.",
+        "thumbnailUrl": "https://egotechgames.com/assets/trailer/thumbnail.jpg",
+        "uploadDate": "2026-09-22",
+        "duration": "PT1M18S",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/BjfGpWkqF7Q",
+        "contentUrl": "https://www.youtube.com/watch?v=BjfGpWkqF7Q",
+        "publisher": { "@id": "https://egotechgames.com/#studio" }
+      },
       "screenshot": [
         "https://egotechgames.com/assets/screenshots/just-one-more-season/fr/01_open_space-1600.webp",
         "https://egotechgames.com/assets/screenshots/just-one-more-season/fr/05_match_direct-1600.webp",
@@ -368,6 +395,9 @@
      - Chaque texte existe en deux versions : <span lang="fr"> et <span lang="en">.
        Modifie les deux (ou supprime la version EN si tu veux un site FR seul).
      - Liens Steam / Epic : cherche "STEAM_APP_ID" et "EPIC_SLUG".
+     - Bande-annonce : premiere vignette du carrousel. La miniature est servie en local
+       (assets/trailer/) et l'iframe YouTube n'est cree qu'au clic — change l'identifiant
+       dans data-video="..." pour pointer une autre video.
      - Captures : les fichiers vivent dans assets/screenshots/just-one-more-season/{fr,en}/.
        Chaque capture existe en -800 et -1600, en .avif et .webp (générés depuis les .png d'origine).
        Le <picture data-loc> bascule tout seul entre /fr/ et /en/ : n'écris que le chemin /fr/.
@@ -424,9 +454,17 @@
     <!-- Jeu vedette : Just One More Season -->
     <article class="feature" id="just-one-more-season">
       <div class="shot carousel" id="oms-carousel" role="group" aria-roledescription="carrousel" aria-label="Captures de Just One More Season">
-        <!-- Pour un trailer : remplace ce carrousel par
-             <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Trailer Just One More Season" allowfullscreen></iframe> -->
-        <button class="cslide on" type="button" data-lb data-cap-fr="L'open space" data-cap-en="The team room"
+        <button class="cslide cvideo on" type="button" data-lb data-video="BjfGpWkqF7Q"
+                data-cap-fr="Bande-annonce" data-cap-en="Announcement trailer"
+                data-label-fr="Lire la bande-annonce (1 min 18)" data-label-en="Play the trailer (1 min 18)" aria-label="Lire la bande-annonce (1 min 18)">
+          <picture>
+            <source type="image/avif" srcset="assets/trailer/thumbnail-800.avif 800w, assets/trailer/thumbnail-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 52vw">
+            <source type="image/webp" srcset="assets/trailer/thumbnail-800.webp 800w, assets/trailer/thumbnail-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 52vw">
+            <img src="assets/trailer/thumbnail-800.webp" width="1280" height="720" alt="Bande-annonce de Just One More Season : aperçu du jeu." data-alt-fr="Bande-annonce de Just One More Season : aperçu du jeu." data-alt-en="Just One More Season announcement trailer: the game in motion." decoding="async">
+          </picture>
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <button class="cslide" type="button" data-lb hidden data-cap-fr="L'open space" data-cap-en="The team room"
                 data-label-fr="Agrandir : L'open space" data-label-en="Enlarge: The team room" aria-label="Agrandir : L'open space">
           <picture data-loc>
             <source type="image/avif" srcset="assets/screenshots/just-one-more-season/fr/01_open_space-800.avif 800w, assets/screenshots/just-one-more-season/fr/01_open_space-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 52vw">
@@ -536,19 +574,20 @@
           <span class="ccap" id="c-cap" aria-live="polite"></span>
           <span class="cnum" id="c-num"></span>
           <span class="cdots" id="c-dots">
-            <button type="button" data-go="0" aria-current="true" data-label-fr="Capture 1 : L'open space" data-label-en="Screenshot 1: The team room" aria-label="Capture 1 : L'open space"></button>
-            <button type="button" data-go="1" data-label-fr="Capture 2 : Fiche de joueur" data-label-en="Screenshot 2: Player profile" aria-label="Capture 2 : Fiche de joueur"></button>
-            <button type="button" data-go="2" data-label-fr="Capture 3 : Scouting" data-label-en="Screenshot 3: Scouting" aria-label="Capture 3 : Scouting"></button>
-            <button type="button" data-go="3" data-label-fr="Capture 4 : Avant-match" data-label-en="Screenshot 4: Pre-match" aria-label="Capture 4 : Avant-match"></button>
-            <button type="button" data-go="4" data-label-fr="Capture 5 : Match en direct" data-label-en="Screenshot 5: Live match" aria-label="Capture 5 : Match en direct"></button>
-            <button type="button" data-go="5" data-label-fr="Capture 6 : Carte de la saison" data-label-en="Screenshot 6: Season map" aria-label="Capture 6 : Carte de la saison"></button>
-            <button type="button" data-go="6" data-label-fr="Capture 7 : Événements" data-label-en="Screenshot 7: Events" aria-label="Capture 7 : Événements"></button>
-            <button type="button" data-go="7" data-label-fr="Capture 8 : Finances" data-label-en="Screenshot 8: Finances" aria-label="Capture 8 : Finances"></button>
-            <button type="button" data-go="8" data-label-fr="Capture 9 : Sponsors" data-label-en="Screenshot 9: Sponsors" aria-label="Capture 9 : Sponsors"></button>
-            <button type="button" data-go="9" data-label-fr="Capture 10 : Staff" data-label-en="Screenshot 10: Staff" aria-label="Capture 10 : Staff"></button>
-            <button type="button" data-go="10" data-label-fr="Capture 11 : Tournoi de fin de saison" data-label-en="Screenshot 11: Season finals" aria-label="Capture 11 : Tournoi de fin de saison"></button>
-            <button type="button" data-go="11" data-label-fr="Capture 12 : Comité administratif" data-label-en="Screenshot 12: The board" aria-label="Capture 12 : Comité administratif"></button>
-            <button type="button" data-go="12" data-label-fr="Capture 13 : Vitrine des trophées" data-label-en="Screenshot 13: Trophy room" aria-label="Capture 13 : Vitrine des trophées"></button>
+            <button type="button" data-go="0" aria-current="true" data-label-fr="Bande-annonce" data-label-en="Announcement trailer" aria-label="Bande-annonce"></button>
+            <button type="button" data-go="1" data-label-fr="Capture 1 : L'open space" data-label-en="Screenshot 1: The team room" aria-label="Capture 1 : L'open space"></button>
+            <button type="button" data-go="2" data-label-fr="Capture 2 : Fiche de joueur" data-label-en="Screenshot 2: Player profile" aria-label="Capture 2 : Fiche de joueur"></button>
+            <button type="button" data-go="3" data-label-fr="Capture 3 : Scouting" data-label-en="Screenshot 3: Scouting" aria-label="Capture 3 : Scouting"></button>
+            <button type="button" data-go="4" data-label-fr="Capture 4 : Avant-match" data-label-en="Screenshot 4: Pre-match" aria-label="Capture 4 : Avant-match"></button>
+            <button type="button" data-go="5" data-label-fr="Capture 5 : Match en direct" data-label-en="Screenshot 5: Live match" aria-label="Capture 5 : Match en direct"></button>
+            <button type="button" data-go="6" data-label-fr="Capture 6 : Carte de la saison" data-label-en="Screenshot 6: Season map" aria-label="Capture 6 : Carte de la saison"></button>
+            <button type="button" data-go="7" data-label-fr="Capture 7 : Événements" data-label-en="Screenshot 7: Events" aria-label="Capture 7 : Événements"></button>
+            <button type="button" data-go="8" data-label-fr="Capture 8 : Finances" data-label-en="Screenshot 8: Finances" aria-label="Capture 8 : Finances"></button>
+            <button type="button" data-go="9" data-label-fr="Capture 9 : Sponsors" data-label-en="Screenshot 9: Sponsors" aria-label="Capture 9 : Sponsors"></button>
+            <button type="button" data-go="10" data-label-fr="Capture 10 : Staff" data-label-en="Screenshot 10: Staff" aria-label="Capture 10 : Staff"></button>
+            <button type="button" data-go="11" data-label-fr="Capture 11 : Tournoi de fin de saison" data-label-en="Screenshot 11: Season finals" aria-label="Capture 11 : Tournoi de fin de saison"></button>
+            <button type="button" data-go="12" data-label-fr="Capture 12 : Comité administratif" data-label-en="Screenshot 12: The board" aria-label="Capture 12 : Comité administratif"></button>
+            <button type="button" data-go="13" data-label-fr="Capture 13 : Vitrine des trophées" data-label-en="Screenshot 13: Trophy room" aria-label="Capture 13 : Vitrine des trophées"></button>
           </span>
         </div>
       </div>
@@ -560,7 +599,7 @@
           <span lang="en">Take charge of an esports team and push it from Iron all the way to Diamond. Recruit, train, manage morale and money, then watch your players fight it out live. Every season is a new run — the calls you make between matches change everything.</span>
         </p>
         <div class="tags">
-          <span class="tag">Roguelite</span>
+          <span class="tag">Roguelike</span>
           <span class="tag"><span lang="fr">Gestion</span><span lang="en">Management</span></span>
           <span class="tag">E-sport</span>
           <span class="tag"><span lang="fr">Solo</span><span lang="en">Single-player</span></span>
@@ -726,6 +765,7 @@
         <p><span lang="fr">Site hébergé par GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Nom de domaine et service DNS : Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis.</span><span lang="en">Hosted on GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Domain name and DNS: Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA.</span></p>
         <h4><span lang="fr">Données personnelles</span><span lang="en">Personal data</span></h4>
         <p><span lang="fr">Ce site ne dépose aucun cookie et ne collecte aucune donnée personnelle. Seule ta préférence de langue est gardée dans ton navigateur.</span><span lang="en">This site sets no cookies and collects no personal data. Only your language preference is kept in your browser.</span></p>
+        <p><span lang="fr">La bande-annonce est hébergée par YouTube (Google Ireland Limited) en mode sans cookie. Rien n'est chargé depuis YouTube tant que tu ne lances pas la lecture ; à partir de ce moment, Google peut collecter des données selon sa propre politique de confidentialité.</span><span lang="en">The trailer is hosted by YouTube (Google Ireland Limited) in no-cookie mode. Nothing is loaded from YouTube until you press play; from then on, Google may collect data under its own privacy policy.</span></p>
         <h4><span lang="fr">Marques</span><span lang="en">Trademarks</span></h4>
         <p><span lang="fr">« EgoTech » est une marque déposée. Steam est une marque de Valve Corporation ; Epic Games Store est une marque d'Epic Games, Inc.</span><span lang="en">“EgoTech” is a registered trademark. Steam is a trademark of Valve Corporation; Epic Games Store is a trademark of Epic Games, Inc.</span></p>
       </div>
@@ -735,10 +775,14 @@
 
 <!-- ===================== VISIONNEUSE DE CAPTURES ===================== -->
 <dialog class="lb" id="lightbox" aria-label="Just One More Season">
-  <picture>
-    <source id="lb-avif" type="image/avif" srcset="">
-    <img id="lb-img" alt="" width="1600" height="900" decoding="async">
-  </picture>
+  <div class="lb-pic" id="lb-pic">
+    <picture>
+      <source id="lb-avif" type="image/avif" srcset="">
+      <img id="lb-img" alt="" width="1600" height="900" decoding="async">
+    </picture>
+  </div>
+  <!-- L'iframe YouTube n'est cree qu'au clic : aucune requete tierce avant. -->
+  <div class="lb-video" id="lb-video" hidden></div>
   <div class="lb-bar">
     <button type="button" id="lb-prev" data-label-fr="Capture précédente" data-label-en="Previous screenshot" aria-label="Capture précédente">&lsaquo;</button>
     <button type="button" id="lb-next" data-label-fr="Capture suivante" data-label-en="Next screenshot" aria-label="Capture suivante">&rsaquo;</button>
@@ -752,6 +796,7 @@
     var root = document.documentElement, btn = document.getElementById('lang-toggle');
     var dlg = document.getElementById('lightbox');
     var lbAvif = document.getElementById('lb-avif'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
+    var lbPic = document.getElementById('lb-pic'), lbVideo = document.getElementById('lb-video');
     var items = [].slice.call(document.querySelectorAll('[data-lb]'));
     var cur = 0, opener = null;
 
@@ -799,7 +844,7 @@
       for (var k = 0; k < slides.length; k++) {
         var near = Math.min(Math.abs(k - slide), slides.length - Math.abs(k - slide)) <= 1;
         slides[k].hidden = !near;              /* les autres ne sont pas telechargees */
-        slides[k].className = 'cslide' + (k === slide ? ' on' : '');
+        slides[k].classList.toggle('on', k === slide);   /* pas de className : la slide video garde sa classe */
         if (dots[k]) dots[k].setAttribute('aria-current', k === slide ? 'true' : 'false');
       }
       caption();
@@ -825,14 +870,27 @@
     }
 
     /* --- Visionneuse --- */
+    function stopVideo() {
+      lbVideo.innerHTML = '';            /* retirer l'iframe coupe le son */
+      lbVideo.hidden = true; lbPic.hidden = false;
+    }
     function show(i) {
       cur = (i + items.length) % items.length;
-      var img = items[cur].querySelector('img');
+      var el = items[cur], img = el.querySelector('img'), vid = el.getAttribute('data-video');
+      lbCap.textContent = img.getAttribute('alt');
+      lbImg.setAttribute('alt', img.getAttribute('alt'));
+      if (vid) {
+        var l = root.getAttribute('data-lang') || 'fr';
+        lbPic.hidden = true; lbVideo.hidden = false;
+        lbVideo.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + vid +
+          '?autoplay=1&rel=0" title="' + (l === 'fr' ? 'Bande-annonce de Just One More Season' : 'Just One More Season trailer') +
+          '" allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>';
+        return;
+      }
+      stopVideo();
       var full = img.getAttribute('src').replace('-800.', '-1600.');
       lbAvif.setAttribute('srcset', full.replace(/\.webp$/, '.avif'));
       lbImg.setAttribute('src', full);
-      lbImg.setAttribute('alt', img.getAttribute('alt'));
-      lbCap.textContent = img.getAttribute('alt');
     }
     function open(i, from) {
       if (!dlg || !dlg.showModal) return false;
@@ -846,11 +904,12 @@
     });
     if (dlg) {
       /* fermer la visionneuse laisse le carrousel sur la capture qu'on regardait */
-      dlg.addEventListener('close', function () { if (slides.length) go(cur); });
+      dlg.addEventListener('close', function () { stopVideo(); if (slides.length) go(cur); });
       document.getElementById('lb-prev').addEventListener('click', function () { show(cur - 1); });
       document.getElementById('lb-next').addEventListener('click', function () { show(cur + 1); });
-      document.getElementById('lb-close').addEventListener('click', function () { dlg.close(); });
-      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+      document.getElementById('lb-close').addEventListener('click', function () { stopVideo(); dlg.close(); });
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) { stopVideo(); dlg.close(); } });
+      dlg.addEventListener('cancel', stopVideo);   /* Echap */
       dlg.addEventListener('close', function () { if (opener) { opener.focus(); opener = null; } });
       dlg.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft') { show(cur - 1); }
