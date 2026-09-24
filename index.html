@@ -285,6 +285,12 @@
   .cdots { display: flex; gap: 5px; }
   .cdots button { width: 9px; height: 9px; padding: 0; cursor: pointer; border: 2px solid var(--contour); background: var(--lavande); }
   .cdots button[aria-current="true"] { background: var(--ambre); }
+  /* signale des visuels de travail : ce ne sont pas des captures du jeu */
+  .cbadge {
+    position: absolute; top: 8px; left: 8px; z-index: 3; pointer-events: none;
+    font-family: var(--f-label); font-size: 11px; letter-spacing: .04em; padding: 3px 8px;
+    color: var(--contour); background: var(--ambre); border: 2px solid var(--contour);
+  }
   @media (max-width: 620px) { .cbar .ccap { display: none; } .cnav { padding: 8px 10px; } }
 
   /* ---------- Visionneuse ---------- */
@@ -382,6 +388,7 @@
       "genre": ["Tactique", "Tour par tour"],
       "gamePlatform": "PC",
       "playMode": "SinglePlayer",
+      "image": "https://egotechgames.com/assets/screenshots/chocolatine_wars/fr/01_menu_principal-1600.webp",
       "author": { "@id": "https://egotechgames.com/#studio" },
       "publisher": { "@id": "https://egotechgames.com/#studio" }
     }
@@ -403,7 +410,10 @@
        Le <picture data-loc> bascule tout seul entre /fr/ et /en/ : n'écris que le chemin /fr/.
        Les textes alternatifs se mettent dans data-alt-fr / data-alt-en (l'attribut alt est recopié par le JS).
        Pour ajouter une capture : dépose le .png dans les deux langues, lance tools/optimize-images.py,
-       puis copie un bloc <button class="cslide"> dans le carrousel et un bouton dans #c-dots.
+       puis copie un bloc <button class="cslide"> dans le carrousel et un bouton dans .cdots.
+     - Concept arts de Chocolatine Wars : assets/screenshots/chocolatine_wars/{fr,en}/, même chaîne.
+       Les noms de fichier diffèrent selon la langue : data-file-fr / data-file-en sur le <picture>
+       indiquent le nom à substituer (les images sont appariées par leur numéro).
      - Photo du créateur : assets/alexandre/alexandre-{320,640}.{avif,webp}.
      ================================================================= -->
 
@@ -453,7 +463,8 @@
 
     <!-- Jeu vedette : Just One More Season -->
     <article class="feature" id="just-one-more-season">
-      <div class="shot carousel" id="oms-carousel" role="group" aria-roledescription="carrousel" aria-label="Captures de Just One More Season">
+      <div class="shot carousel" id="oms-carousel" role="group" aria-roledescription="carrousel" data-game="Just One More Season"
+           data-label-fr="Captures de Just One More Season" data-label-en="Just One More Season screenshots" aria-label="Captures de Just One More Season">
         <button class="cslide cvideo on" type="button" data-lb data-video="BjfGpWkqF7Q"
                 data-cap-fr="Bande-annonce" data-cap-en="Announcement trailer"
                 data-label-fr="Lire la bande-annonce (1 min 18)" data-label-en="Play the trailer (1 min 18)" aria-label="Lire la bande-annonce (1 min 18)">
@@ -571,9 +582,9 @@
         <button class="cnav cprev" type="button" data-label-fr="Capture précédente" data-label-en="Previous screenshot" aria-label="Capture précédente">&lsaquo;</button>
         <button class="cnav cnext" type="button" data-label-fr="Capture suivante" data-label-en="Next screenshot" aria-label="Capture suivante">&rsaquo;</button>
         <div class="cbar">
-          <span class="ccap" id="c-cap" aria-live="polite"></span>
-          <span class="cnum" id="c-num"></span>
-          <span class="cdots" id="c-dots">
+          <span class="ccap" aria-live="polite"></span>
+          <span class="cnum"></span>
+          <span class="cdots">
             <button type="button" data-go="0" aria-current="true" data-label-fr="Bande-annonce" data-label-en="Announcement trailer" aria-label="Bande-annonce"></button>
             <button type="button" data-go="1" data-label-fr="Capture 1 : L'open space" data-label-en="Screenshot 1: The team room" aria-label="Capture 1 : L'open space"></button>
             <button type="button" data-go="2" data-label-fr="Capture 2 : Fiche de joueur" data-label-en="Screenshot 2: Player profile" aria-label="Capture 2 : Fiche de joueur"></button>
@@ -620,7 +631,63 @@
     <div class="grid2">
       <!-- Chocolatine Wars -->
       <article class="card" id="chocolatine-wars">
-        <div class="shot"><span lang="fr">Visuel à venir</span><span lang="en">Artwork coming soon</span></div>
+        <div class="shot carousel" id="cw-carousel" role="group" aria-roledescription="carrousel" data-game="Chocolatine Wars"
+             data-label-fr="Concept arts de Chocolatine Wars" data-label-en="Chocolatine Wars concept art" aria-label="Concept arts de Chocolatine Wars">
+          <span class="cbadge" aria-hidden="true">Concept art</span>
+          <button class="cslide on" type="button" data-lb data-cap-fr="Menu principal" data-cap-en="Main menu"
+                  data-label-fr="Agrandir : Menu principal" data-label-en="Enlarge: Main menu" aria-label="Agrandir : Menu principal">
+            <picture data-loc data-file-fr="01_menu_principal" data-file-en="01_main_menu">
+              <source type="image/avif" srcset="assets/screenshots/chocolatine_wars/fr/01_menu_principal-800.avif 800w, assets/screenshots/chocolatine_wars/fr/01_menu_principal-1600.avif 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <source type="image/webp" srcset="assets/screenshots/chocolatine_wars/fr/01_menu_principal-800.webp 800w, assets/screenshots/chocolatine_wars/fr/01_menu_principal-1600.webp 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <img src="assets/screenshots/chocolatine_wars/fr/01_menu_principal-800.webp" width="1600" height="900" alt="Concept art du menu principal : un tank-chocolatine et un soldat cookie posent devant des montagnes de flan." data-alt-fr="Concept art du menu principal : un tank-chocolatine et un soldat cookie posent devant des montagnes de flan." data-alt-en="Main menu concept art: a chocolatine tank and a cookie soldier pose in front of custard-pudding mountains." loading="lazy" decoding="async">
+            </picture>
+          </button>
+          <button class="cslide" type="button" data-lb data-cap-fr="Carte tactique" data-cap-en="Tactical map"
+                  data-label-fr="Agrandir : Carte tactique" data-label-en="Enlarge: Tactical map" aria-label="Agrandir : Carte tactique">
+            <picture data-loc data-file-fr="02_carte_tactique" data-file-en="02_tactical_map">
+              <source type="image/avif" srcset="assets/screenshots/chocolatine_wars/fr/02_carte_tactique-800.avif 800w, assets/screenshots/chocolatine_wars/fr/02_carte_tactique-1600.avif 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <source type="image/webp" srcset="assets/screenshots/chocolatine_wars/fr/02_carte_tactique-800.webp 800w, assets/screenshots/chocolatine_wars/fr/02_carte_tactique-1600.webp 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <img src="assets/screenshots/chocolatine_wars/fr/02_carte_tactique-800.webp" width="1600" height="900" alt="Concept art de la carte tactique : l'Armée Chocolatine lance un tank de l'autre côté de la rivière de chocolat, 64 % de dégâts estimés." data-alt-fr="Concept art de la carte tactique : l'Armée Chocolatine lance un tank de l'autre côté de la rivière de chocolat, 64 % de dégâts estimés." data-alt-en="Tactical map concept art: the Chocolatine Army sends a tank across the chocolate river, with 64% estimated damage." loading="lazy" decoding="async">
+            </picture>
+          </button>
+          <button class="cslide" type="button" data-lb hidden data-cap-fr="Combat" data-cap-en="Battle"
+                  data-label-fr="Agrandir : Combat" data-label-en="Enlarge: Battle" aria-label="Agrandir : Combat">
+            <picture data-loc data-file-fr="03_combat" data-file-en="03_battle">
+              <source type="image/avif" srcset="assets/screenshots/chocolatine_wars/fr/03_combat-800.avif 800w, assets/screenshots/chocolatine_wars/fr/03_combat-1600.avif 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <source type="image/webp" srcset="assets/screenshots/chocolatine_wars/fr/03_combat-800.webp 800w, assets/screenshots/chocolatine_wars/fr/03_combat-1600.webp 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <img src="assets/screenshots/chocolatine_wars/fr/03_combat-800.webp" width="1600" height="900" alt="Concept art d'un combat : trois tanks-chocolatines pilonnent une escouade de cookies du camp « pain au chocolat ». Crunch !" data-alt-fr="Concept art d'un combat : trois tanks-chocolatines pilonnent une escouade de cookies du camp « pain au chocolat ». Crunch !" data-alt-en="Battle concept art: three chocolatine tanks pound a squad of cookies from the “pain au chocolat” side. Crunch!" loading="lazy" decoding="async">
+            </picture>
+          </button>
+          <button class="cslide" type="button" data-lb hidden data-cap-fr="Four de campagne" data-cap-en="Field oven"
+                  data-label-fr="Agrandir : Four de campagne" data-label-en="Enlarge: Field oven" aria-label="Agrandir : Four de campagne">
+            <picture data-loc data-file-fr="04_usine" data-file-en="04_factory">
+              <source type="image/avif" srcset="assets/screenshots/chocolatine_wars/fr/04_usine-800.avif 800w, assets/screenshots/chocolatine_wars/fr/04_usine-1600.avif 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <source type="image/webp" srcset="assets/screenshots/chocolatine_wars/fr/04_usine-800.webp 800w, assets/screenshots/chocolatine_wars/fr/04_usine-1600.webp 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <img src="assets/screenshots/chocolatine_wars/fr/04_usine-800.webp" width="1600" height="900" alt="Concept art du four de campagne : on y produit ses unités contre du sucre, du Cookie Soldat au Chocolatine Tank." data-alt-fr="Concept art du four de campagne : on y produit ses unités contre du sucre, du Cookie Soldat au Chocolatine Tank." data-alt-en="Field oven concept art: spend sugar to build your units, from the Cookie Soldier to the Chocolatine Tank." loading="lazy" decoding="async">
+            </picture>
+          </button>
+          <button class="cslide" type="button" data-lb data-cap-fr="Dialogue" data-cap-en="Dialogue"
+                  data-label-fr="Agrandir : Dialogue" data-label-en="Enlarge: Dialogue" aria-label="Agrandir : Dialogue">
+            <picture data-loc data-file-fr="05_dialogue" data-file-en="05_dialogue">
+              <source type="image/avif" srcset="assets/screenshots/chocolatine_wars/fr/05_dialogue-800.avif 800w, assets/screenshots/chocolatine_wars/fr/05_dialogue-1600.avif 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <source type="image/webp" srcset="assets/screenshots/chocolatine_wars/fr/05_dialogue-800.webp 800w, assets/screenshots/chocolatine_wars/fr/05_dialogue-1600.webp 1600w" sizes="(max-width: 820px) 100vw, 530px">
+              <img src="assets/screenshots/chocolatine_wars/fr/05_dialogue-800.webp" width="1600" height="900" alt="Concept art d'un dialogue : le Caporal Cookie, outré qu'on ait osé dire « pain au chocolat », lance ses troupes à l'assaut." data-alt-fr="Concept art d'un dialogue : le Caporal Cookie, outré qu'on ait osé dire « pain au chocolat », lance ses troupes à l'assaut." data-alt-en="Dialogue concept art: Corporal Cookie, outraged that anyone dared say “pain au chocolat”, sends the troops in." loading="lazy" decoding="async">
+            </picture>
+          </button>
+          <button class="cnav cprev" type="button" data-label-fr="Visuel précédent" data-label-en="Previous artwork" aria-label="Visuel précédent">&lsaquo;</button>
+          <button class="cnav cnext" type="button" data-label-fr="Visuel suivant" data-label-en="Next artwork" aria-label="Visuel suivant">&rsaquo;</button>
+          <div class="cbar">
+            <span class="ccap" aria-live="polite"></span>
+            <span class="cnum"></span>
+            <span class="cdots">
+              <button type="button" data-go="0" aria-current="true" data-label-fr="Concept art 1 : Menu principal" data-label-en="Concept art 1: Main menu" aria-label="Concept art 1 : Menu principal"></button>
+              <button type="button" data-go="1" data-label-fr="Concept art 2 : Carte tactique" data-label-en="Concept art 2: Tactical map" aria-label="Concept art 2 : Carte tactique"></button>
+              <button type="button" data-go="2" data-label-fr="Concept art 3 : Combat" data-label-en="Concept art 3: Battle" aria-label="Concept art 3 : Combat"></button>
+              <button type="button" data-go="3" data-label-fr="Concept art 4 : Four de campagne" data-label-en="Concept art 4: Field oven" aria-label="Concept art 4 : Four de campagne"></button>
+              <button type="button" data-go="4" data-label-fr="Concept art 5 : Dialogue" data-label-en="Concept art 5: Dialogue" aria-label="Concept art 5 : Dialogue"></button>
+            </span>
+          </div>
+        </div>
         <div class="body">
           <span class="status dev"><span lang="fr">En développement</span><span lang="en">In development</span></span>
           <h3>Chocolatine Wars</h3>
@@ -784,8 +851,8 @@
   <!-- L'iframe YouTube n'est cree qu'au clic : aucune requete tierce avant. -->
   <div class="lb-video" id="lb-video" hidden></div>
   <div class="lb-bar">
-    <button type="button" id="lb-prev" data-label-fr="Capture précédente" data-label-en="Previous screenshot" aria-label="Capture précédente">&lsaquo;</button>
-    <button type="button" id="lb-next" data-label-fr="Capture suivante" data-label-en="Next screenshot" aria-label="Capture suivante">&rsaquo;</button>
+    <button type="button" id="lb-prev" data-label-fr="Image précédente" data-label-en="Previous image" aria-label="Image précédente">&lsaquo;</button>
+    <button type="button" id="lb-next" data-label-fr="Image suivante" data-label-en="Next image" aria-label="Image suivante">&rsaquo;</button>
     <p id="lb-cap"></p>
     <button type="button" class="lb-close" id="lb-close"><span lang="fr">Fermer</span><span lang="en">Close</span></button>
   </div>
@@ -797,26 +864,33 @@
     var dlg = document.getElementById('lightbox');
     var lbAvif = document.getElementById('lb-avif'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
     var lbPic = document.getElementById('lb-pic'), lbVideo = document.getElementById('lb-video');
-    var items = [].slice.call(document.querySelectorAll('[data-lb]'));
-    var cur = 0, opener = null;
+    var items = [], cur = 0, opener = null, group = null;
 
     /* --- Langue : textes (CSS), sources d'images et attributs --- */
     function localize(l) {
-      var i, j, el, kids;
+      var i, j, el, kids, from, to;
       var pics = document.querySelectorAll('picture[data-loc]');
       for (i = 0; i < pics.length; i++) {
+        /* noms de fichier propres a chaque langue (concept arts) : data-file-fr / data-file-en */
+        from = pics[i].getAttribute('data-file-' + (l === 'fr' ? 'en' : 'fr'));
+        to = pics[i].getAttribute('data-file-' + l);
         kids = pics[i].querySelectorAll('source, img');
         for (j = 0; j < kids.length; j++) {
           el = kids[j];
-          if (el.getAttribute('srcset')) el.setAttribute('srcset', el.getAttribute('srcset').replace(/\/(?:fr|en)\//g, '/' + l + '/'));
-          if (el.getAttribute('src')) el.setAttribute('src', el.getAttribute('src').replace(/\/(?:fr|en)\//g, '/' + l + '/'));
+          ['srcset', 'src'].forEach(function (at) {
+            var v = el.getAttribute(at);
+            if (!v) return;
+            v = v.replace(/\/(?:fr|en)\//g, '/' + l + '/');
+            if (from && to) v = v.split('/' + from + '-').join('/' + to + '-');
+            el.setAttribute(at, v);
+          });
         }
       }
       var alts = document.querySelectorAll('[data-alt-fr]');
       for (i = 0; i < alts.length; i++) alts[i].setAttribute('alt', alts[i].getAttribute('data-alt-' + l));
       var labels = document.querySelectorAll('[data-label-fr]');
       for (i = 0; i < labels.length; i++) labels[i].setAttribute('aria-label', labels[i].getAttribute('data-label-' + l));
-      caption();
+      cars.forEach(caption);
     }
 
     function set(l) {
@@ -827,47 +901,57 @@
       try { localStorage.setItem('eg-lang', l); } catch (e) {}
     }
 
-    /* --- Carrousel : une seule capture visible, les voisines pretes a l'emploi --- */
-    var slides = [].slice.call(document.querySelectorAll('.cslide'));
-    var dots = [].slice.call(document.querySelectorAll('#c-dots button'));
-    var cap = document.getElementById('c-cap'), num = document.getElementById('c-num');
-    var slide = 0;
-
-    function caption() {
-      if (!slides.length) return;
+    /* --- Carrousels : une seule image visible, les voisines pretes a l'emploi --- */
+    function caption(c) {
       var l = root.getAttribute('data-lang') || 'fr';
-      cap.textContent = slides[slide].getAttribute('data-cap-' + l);
-      num.textContent = (slide + 1) + ' / ' + slides.length;
+      c.cap.textContent = c.slides[c.i].getAttribute('data-cap-' + l);
+      c.num.textContent = (c.i + 1) + ' / ' + c.slides.length;
     }
-    function go(i) {
-      slide = (i + slides.length) % slides.length;
-      for (var k = 0; k < slides.length; k++) {
-        var near = Math.min(Math.abs(k - slide), slides.length - Math.abs(k - slide)) <= 1;
-        slides[k].hidden = !near;              /* les autres ne sont pas telechargees */
-        slides[k].classList.toggle('on', k === slide);   /* pas de className : la slide video garde sa classe */
-        if (dots[k]) dots[k].setAttribute('aria-current', k === slide ? 'true' : 'false');
+    function go(c, i) {
+      var n = c.slides.length;
+      c.i = (i + n) % n;
+      for (var k = 0; k < n; k++) {
+        var near = Math.min(Math.abs(k - c.i), n - Math.abs(k - c.i)) <= 1;
+        c.slides[k].hidden = !near;              /* les autres ne sont pas telechargees */
+        c.slides[k].classList.toggle('on', k === c.i);   /* pas de className : la slide video garde sa classe */
+        if (c.dots[k]) c.dots[k].setAttribute('aria-current', k === c.i ? 'true' : 'false');
       }
-      caption();
+      caption(c);
     }
-    if (slides.length) {
-      document.querySelector('.cprev').addEventListener('click', function () { go(slide - 1); });
-      document.querySelector('.cnext').addEventListener('click', function () { go(slide + 1); });
-      dots.forEach(function (d) {
-        d.addEventListener('click', function () { go(+d.getAttribute('data-go')); });
+    var cars = [].slice.call(document.querySelectorAll('.carousel')).map(function (el) {
+      var c = {
+        el: el, i: 0,
+        slides: [].slice.call(el.querySelectorAll('.cslide')),
+        dots: [].slice.call(el.querySelectorAll('.cdots button')),
+        cap: el.querySelector('.ccap'), num: el.querySelector('.cnum')
+      };
+      var x0 = null;
+      el.querySelector('.cprev').addEventListener('click', function () { go(c, c.i - 1); });
+      el.querySelector('.cnext').addEventListener('click', function () { go(c, c.i + 1); });
+      c.dots.forEach(function (d) {
+        d.addEventListener('click', function () { go(c, +d.getAttribute('data-go')); });
       });
-      var car = document.getElementById('oms-carousel'), x0 = null;
-      car.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft') { go(slide - 1); } else if (e.key === 'ArrowRight') { go(slide + 1); }
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { go(c, c.i - 1); } else if (e.key === 'ArrowRight') { go(c, c.i + 1); }
       });
-      car.addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
-      car.addEventListener('touchend', function (e) {
+      el.addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
+      el.addEventListener('touchend', function (e) {
         if (x0 === null) return;
         var dx = e.changedTouches[0].clientX - x0;
-        if (Math.abs(dx) > 40) { go(slide + (dx < 0 ? 1 : -1)); }
+        if (Math.abs(dx) > 40) { go(c, c.i + (dx < 0 ? 1 : -1)); }
         x0 = null;
       }, { passive: true });
-      go(0);
-    }
+      /* la visionneuse ne parcourt que les images du carrousel ouvert */
+      c.slides.forEach(function (sl, i) {
+        if (!sl.hasAttribute('data-lb')) return;
+        sl.addEventListener('click', function (e) {
+          if (!open(c, i, sl)) return;
+          e.preventDefault();
+        });
+      });
+      go(c, 0);
+      return c;
+    });
 
     /* --- Visionneuse --- */
     function stopVideo() {
@@ -877,13 +961,14 @@
     function show(i) {
       cur = (i + items.length) % items.length;
       var el = items[cur], img = el.querySelector('img'), vid = el.getAttribute('data-video');
+      var game = group.el.getAttribute('data-game');
       lbCap.textContent = img.getAttribute('alt');
       lbImg.setAttribute('alt', img.getAttribute('alt'));
       if (vid) {
         var l = root.getAttribute('data-lang') || 'fr';
         lbPic.hidden = true; lbVideo.hidden = false;
         lbVideo.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + vid +
-          '?autoplay=1&rel=0" title="' + (l === 'fr' ? 'Bande-annonce de Just One More Season' : 'Just One More Season trailer') +
+          '?autoplay=1&rel=0" title="' + (l === 'fr' ? 'Bande-annonce de ' + game : game + ' trailer') +
           '" allow="autoplay; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>';
         return;
       }
@@ -892,19 +977,15 @@
       lbAvif.setAttribute('srcset', full.replace(/\.webp$/, '.avif'));
       lbImg.setAttribute('src', full);
     }
-    function open(i, from) {
+    function open(c, i, from) {
       if (!dlg || !dlg.showModal) return false;
-      opener = from; show(i); dlg.showModal(); return true;
+      group = c; items = c.slides; opener = from;
+      dlg.setAttribute('aria-label', c.el.getAttribute('data-game'));
+      show(i); dlg.showModal(); return true;
     }
-    items.forEach(function (el, i) {
-      el.addEventListener('click', function (e) {
-        if (!open(i, el)) return;
-        e.preventDefault();
-      });
-    });
     if (dlg) {
-      /* fermer la visionneuse laisse le carrousel sur la capture qu'on regardait */
-      dlg.addEventListener('close', function () { stopVideo(); if (slides.length) go(cur); });
+      /* fermer la visionneuse laisse le carrousel sur l'image qu'on regardait */
+      dlg.addEventListener('close', function () { stopVideo(); if (group) go(group, cur); });
       document.getElementById('lb-prev').addEventListener('click', function () { show(cur - 1); });
       document.getElementById('lb-next').addEventListener('click', function () { show(cur + 1); });
       document.getElementById('lb-close').addEventListener('click', function () { stopVideo(); dlg.close(); });

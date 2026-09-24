@@ -19,6 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FORCE = "--force" in sys.argv
 
 SHOTS = "assets/screenshots/just-one-more-season"
+SHOT_DIRS = (SHOTS, "assets/screenshots/chocolatine_wars")   # concept arts pour Chocolatine Wars
 SHOT_WIDTHS = (800, 1600)      # 800 = slides du carrousel, 1600 = visionneuse
 PORTRAIT_WIDTHS = (320, 640)
 THUMB_WIDTHS = (800, 1280)    # miniature de la bande-annonce (source YouTube : 1280x720)
@@ -52,9 +53,10 @@ def main():
     os.chdir(ROOT)
     made = 0
 
-    for lang in ("fr", "en"):
-        for f in sorted(glob.glob("%s/%s/*.png" % (SHOTS, lang))):
-            made += derive(f, SHOT_WIDTHS)
+    for d in SHOT_DIRS:
+        for lang in ("fr", "en"):
+            for f in sorted(glob.glob("%s/%s/*.png" % (d, lang))):
+                made += derive(f, SHOT_WIDTHS)
 
     made += derive("assets/alexandre/alexandre.jpg", PORTRAIT_WIDTHS)
     made += derive("assets/trailer/thumbnail.jpg", THUMB_WIDTHS)
