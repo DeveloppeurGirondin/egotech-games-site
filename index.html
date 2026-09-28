@@ -101,11 +101,19 @@
   nav { display: flex; align-items: center; gap: 6px 20px; flex-wrap: wrap; }
   nav a { font-family: var(--f-label); font-size: 13px; color: var(--creme); text-decoration: none; letter-spacing: .04em; }
   nav a:hover { color: var(--ambre); }
-  .lang-btn {
-    font-family: var(--f-label); font-size: 12px; color: var(--contour); background: var(--ambre);
-    border: 2px solid var(--contour); box-shadow: 3px 3px 0 var(--contour); padding: 4px 8px; cursor: pointer;
+  /* Sélecteur de langue : la langue active est remplie et « enfoncée », l'autre reste cliquable */
+  .lang-switch { display: inline-flex; border: 2px solid var(--contour); box-shadow: 3px 3px 0 var(--contour); }
+  .lang-switch button {
+    font-family: var(--f-label); font-size: 12px; letter-spacing: .04em; padding: 4px 9px;
+    color: var(--creme); background: transparent; border: 0; cursor: pointer;
   }
-  .lang-btn:active { transform: translate(3px,3px); box-shadow: none; }
+  .lang-switch button + button { border-left: 2px solid var(--contour); }
+  .lang-switch button:hover { color: var(--ambre); }
+  .lang-switch button[aria-pressed="true"] {
+    color: var(--contour); background: var(--ambre); cursor: default;
+    box-shadow: inset 2px 2px 0 rgba(0,0,0,.25);
+  }
+  .lang-switch button:focus-visible { outline: 2px solid var(--ambre); outline-offset: 2px; }
 
   /* ---------- Titres & libellés ---------- */
   h1, h2, h3 { font-family: var(--f-pixel); font-weight: 700; line-height: 1.1; text-wrap: balance; margin: 0; }
@@ -410,7 +418,10 @@
       <a href="#sorties"><span lang="fr">Sorties</span><span lang="en">Roadmap</span></a>
       <a href="#createur" class="hide-sm"><span lang="fr">Le créateur</span><span lang="en">About</span></a>
       <a href="#contact">Contact</a>
-      <button class="lang-btn" id="lang-toggle" type="button" aria-label="Changer de langue / Switch language">EN</button>
+      <div class="lang-switch" role="group" aria-label="Langue / Language">
+        <button type="button" data-set-lang="fr" aria-pressed="true" title="Français">FR</button>
+        <button type="button" data-set-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -842,7 +853,7 @@
 
 <script>
   (function () {
-    var root = document.documentElement, btn = document.getElementById('lang-toggle');
+    var root = document.documentElement, langBtns = document.querySelectorAll('[data-set-lang]');
     var dlg = document.getElementById('lightbox');
     var lbAvif = document.getElementById('lb-avif'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
     var lbPic = document.getElementById('lb-pic'), lbVideo = document.getElementById('lb-video');
@@ -877,7 +888,7 @@
 
     function set(l) {
       root.setAttribute('data-lang', l); root.setAttribute('lang', l);
-      btn.textContent = l === 'fr' ? 'EN' : 'FR';
+      for (var i = 0; i < langBtns.length; i++) langBtns[i].setAttribute('aria-pressed', langBtns[i].getAttribute('data-set-lang') === l ? 'true' : 'false');
       localize(l);
       if (dlg && dlg.open) show(cur);
       try { localStorage.setItem('eg-lang', l); } catch (e) {}
@@ -985,7 +996,10 @@
     try { saved = localStorage.getItem('eg-lang'); } catch (e) {}
     var nav = (navigator.language || 'fr').toLowerCase();
     set(saved || (nav.indexOf('fr') === 0 ? 'fr' : 'en'));
-    btn.addEventListener('click', function () { set(root.getAttribute('data-lang') === 'fr' ? 'en' : 'fr'); });
+    for (var b = 0; b < langBtns.length; b++) langBtns[b].addEventListener('click', function () {
+      var l = this.getAttribute('data-set-lang');
+      if (l !== root.getAttribute('data-lang')) set(l);
+    });
     document.getElementById('year').textContent = new Date().getFullYear();
   })();
 </script>
