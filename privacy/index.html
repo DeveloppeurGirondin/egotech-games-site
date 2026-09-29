@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Politique de confidentialité d'EgoTech Games : site egotechgames.com et jeux (Just One More Season).">
+<link rel="canonical" href="https://egotechgames.com/privacy/">
+<meta name="theme-color" content="#251C3B">
+<link rel="icon" type="image/png" href="../assets/icon-square.png">
+<title>Politique de confidentialité · Privacy policy — EgoTech Games</title>
+<link rel="preload" href="../assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/silkscreen-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Polices auto-hébergées (SIL Open Font License) — voir assets/fonts/LICENSE.txt */
+  @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(../assets/fonts/figtree-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(../assets/fonts/figtree-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Pixelify Sans'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(../assets/fonts/pixelify-sans-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Silkscreen'; font-style: normal; font-weight: 400; font-display: swap;
+    src: url(../assets/fonts/silkscreen-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  :root {
+    --nuit: #251C3B; --nuit-2: #2F2549; --contour: #1B1426; --lavande: #8E86B0;
+    --creme: #FFF3DE; --framboise: #E8386C; --ambre: #FFC24B;
+    --f-pixel: "Pixelify Sans", "Silkscreen", ui-monospace, monospace;
+    --f-label: "Silkscreen", ui-monospace, "Courier New", monospace;
+    --f-body:  "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --px: 4px; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--nuit); color: var(--creme); font-family: var(--f-body);
+    font-size: 17px; line-height: 1.6; padding-inline: 20px;
+    background-image: radial-gradient(rgba(142,134,176,.10) 1px, transparent 1px); background-size: 16px 16px;
+  }
+  .pixel { image-rendering: pixelated; image-rendering: crisp-edges; }
+  a { color: var(--ambre); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--ambre); outline-offset: 3px; }
+  .wrap { max-width: 1080px; margin-inline: auto; }
+  html[data-lang="fr"] [lang="en"]:not(html) { display: none !important; }
+  html[data-lang="en"] [lang="fr"]:not(html) { display: none !important; }
+
+  header.top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    margin-inline: -20px; padding: 12px 20px;
+    background: rgba(37,28,59,.92); backdrop-filter: blur(6px); border-bottom: var(--px) solid var(--contour);
+  }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  header.top .brand img { height: 44px; width: auto; display: block; }
+  nav { display: flex; align-items: center; gap: 6px 20px; flex-wrap: wrap; }
+  nav a { font-family: var(--f-label); font-size: 13px; color: var(--creme); text-decoration: none; letter-spacing: .04em; }
+  nav a:hover { color: var(--ambre); }
+  .lang-switch { display: inline-flex; border: 2px solid var(--contour); box-shadow: 3px 3px 0 var(--contour); }
+  .lang-switch button { font-family: var(--f-label); font-size: 12px; letter-spacing: .04em; padding: 4px 9px; color: var(--creme); background: transparent; border: 0; cursor: pointer; }
+  .lang-switch button + button { border-left: 2px solid var(--contour); }
+  .lang-switch button:hover { color: var(--ambre); }
+  .lang-switch button[aria-pressed="true"] { color: var(--contour); background: var(--ambre); cursor: default; box-shadow: inset 2px 2px 0 rgba(0,0,0,.25); }
+
+  main { padding-block: 56px 24px; }
+  article { max-width: 72ch; }
+  h1, h2 { font-family: var(--f-pixel); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 8px; }
+  h2 { font-size: 1.45rem; margin: 44px 0 12px; color: var(--ambre); }
+  .eyebrow { font-family: var(--f-label); font-size: 13px; letter-spacing: .08em; color: var(--lavande); text-transform: uppercase; margin: 0 0 10px; }
+  .updated { color: var(--lavande); font-size: 15px; margin: 0 0 28px; }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 1.2em; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--framboise); }
+  .note {
+    background: var(--nuit-2); border: 2px solid var(--contour); box-shadow: var(--px) var(--px) 0 var(--contour);
+    padding: 16px 20px; margin: 0 0 14px;
+  }
+  .note p:last-child { margin-bottom: 0; }
+
+  footer { padding-block: 32px 48px; border-top: var(--px) solid var(--contour); margin-top: 48px; font-size: 14px; color: var(--lavande); }
+  footer .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  footer img { height: 36px; width: auto; }
+  @media (max-width: 820px) { header.top .brand img { height: 36px; } main { padding-block: 40px 16px; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="EgoTech Games — accueil">
+      <img class="pixel" src="../assets/logo-horizontal-light.png" alt="EgoTech Games" width="127" height="44">
+    </a>
+    <nav aria-label="Navigation">
+      <a href="../"><span lang="fr">Accueil</span><span lang="en">Home</span></a>
+      <a href="../#contact">Contact</a>
+      <div class="lang-switch" role="group" aria-label="Langue / Language">
+        <button type="button" data-set-lang="fr" aria-pressed="true" title="Français">FR</button>
+        <button type="button" data-set-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ===================== FRANÇAIS ===================== -->
+<article lang="fr">
+  <p class="eyebrow">Données personnelles</p>
+  <h1>Politique de confidentialité</h1>
+  <p class="updated">Dernière mise à jour : 30 septembre 2026</p>
+
+  <div class="note">
+    <p><strong>En bref :</strong> EgoTech Games ne vend rien de vos données, n'affiche aucune publicité et n'intègre aucun outil de mesure d'audience, ni sur ce site ni dans ses jeux. Les seules données qui circulent sont celles nécessaires aux services des plateformes où vous achetez nos jeux (Steam, Epic Games Store) : succès et sauvegardes dans le cloud.</p>
+  </div>
+
+  <h2>1. Qui est responsable de vos données ?</h2>
+  <p>Le responsable du traitement est <strong>EgoTech</strong>, EURL au capital de 1 000,00 €, 1C chemin de Négrot, 33360 Camblanes-et-Meynac, France, SIREN 949 726 004, qui édite les jeux sous le nom <strong>EgoTech Games</strong>.</p>
+  <p>Pour toute question sur vos données : <a href="mailto:contact@egotechgames.com">contact@egotechgames.com</a>.</p>
+  <p>Cette politique s'applique au site egotechgames.com et aux jeux publiés par EgoTech Games, dont <em>Just One More Season</em>.</p>
+
+  <h2>2. Le site egotechgames.com</h2>
+  <ul>
+    <li><strong>Aucun cookie, aucune mesure d'audience.</strong> Le site ne dépose aucun cookie et n'utilise aucun outil de statistiques ou de suivi.</li>
+    <li><strong>Préférence de langue.</strong> Votre choix entre français et anglais est enregistré uniquement dans votre navigateur (stockage local). Il n'est jamais transmis.</li>
+    <li><strong>Hébergement.</strong> Le site est hébergé par GitHub Pages (GitHub, Inc.) et son nom de domaine est géré par Cloudflare, Inc. Comme tout hébergeur, ces prestataires peuvent traiter techniquement votre adresse IP pour acheminer les pages et protéger le service, selon leurs propres politiques de confidentialité. EgoTech n'a pas accès à ces journaux.</li>
+    <li><strong>Vidéos YouTube.</strong> Les bandes-annonces sont intégrées en mode « sans cookie » (youtube-nocookie.com) et ne se chargent que lorsque vous lancez la lecture. À partir de ce moment, Google peut collecter des données selon sa propre politique de confidentialité.</li>
+  </ul>
+
+  <h2>3. Nos jeux</h2>
+  <p><strong>Ce que le jeu enregistre sur votre appareil.</strong> Vos sauvegardes et vos réglages (langue, audio, affichage…) sont enregistrés localement, dans le dossier de données utilisateur de votre système. Ils ne contiennent aucune information d'identité et ne sont jamais envoyés à EgoTech.</p>
+  <p><strong>Ce qui passe par la plateforme d'achat.</strong> Selon la boutique utilisée, le jeu s'appuie sur les services de :</p>
+  <ul>
+    <li><strong>Steam</strong> (Valve Corporation), via Steamworks ;</li>
+    <li><strong>Epic Games Store</strong> (Epic Games, Inc.), via Epic Online Services.</li>
+  </ul>
+  <p>Ces services permettent de débloquer les <strong>succès</strong> et de synchroniser vos <strong>sauvegardes dans le cloud</strong>. Pour cela, la plateforme associe à votre compte joueur l'identifiant de ce compte, votre progression dans les succès et les fichiers de sauvegarde du jeu. Votre compte, vos achats et vos moyens de paiement sont gérés exclusivement par la plateforme, sous sa propre responsabilité :</p>
+  <ul>
+    <li><a href="https://store.steampowered.com/privacy_agreement/" target="_blank" rel="noopener">Politique de confidentialité de Valve (Steam)</a></li>
+    <li><a href="https://www.epicgames.com/site/privacypolicy" target="_blank" rel="noopener">Politique de confidentialité d'Epic Games</a></li>
+  </ul>
+  <p>EgoTech n'a <strong>pas accès</strong> à votre adresse e-mail, à votre nom ni à vos informations de paiement. Les plateformes nous fournissent uniquement des statistiques agrégées et anonymes (nombre de ventes, pourcentage de joueurs ayant débloqué un succès, etc.).</p>
+  <p><strong>Ce que le jeu ne fait pas.</strong> Aucune télémétrie, aucune publicité, aucun achat intégré, aucune messagerie entre joueurs. Le jeu reste jouable hors ligne.</p>
+
+  <h2>4. Quand vous nous écrivez</h2>
+  <p>Si vous nous contactez par e-mail (support, presse, partenariat), nous utilisons votre adresse et le contenu de votre message uniquement pour vous répondre et assurer le suivi de votre demande. Ces échanges sont conservés au maximum <strong>3 ans</strong> après notre dernier contact, puis supprimés.</p>
+  <p>Notre messagerie est hébergée par Google Workspace (Google Ireland Limited).</p>
+
+  <h2>5. Bases légales</h2>
+  <ul>
+    <li>Fonctionnement des succès et des sauvegardes cloud : exécution du contrat de licence du jeu que vous avez acquis.</li>
+    <li>Réponse à vos messages : notre intérêt légitime à répondre aux personnes qui nous contactent.</li>
+    <li>Préférence de langue du site : strictement nécessaire au service que vous demandez, sans transmission.</li>
+  </ul>
+
+  <h2>6. Transferts hors de l'Union européenne</h2>
+  <p>Certains prestataires mentionnés ci-dessus (GitHub, Cloudflare, Valve, Epic Games, Google) sont situés aux États-Unis ou y transfèrent des données. Ces transferts sont encadrés par le cadre de protection des données UE–États-Unis (Data Privacy Framework) ou par des clauses contractuelles types de la Commission européenne, selon le prestataire.</p>
+
+  <h2>7. Vos droits</h2>
+  <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité sur vos données, ainsi que du droit de définir des directives sur leur sort après votre décès.</p>
+  <p>Pour les exercer, écrivez à <a href="mailto:contact@egotechgames.com">contact@egotechgames.com</a>. Pour les données liées à votre compte Steam ou Epic, adressez-vous directement à la plateforme concernée, qui en est seule détentrice.</p>
+  <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">CNIL</a>.</p>
+
+  <h2>8. Enfants</h2>
+  <p>Nous ne collectons sciemment aucune donnée concernant des enfants. L'accès aux boutiques et à leurs services en ligne est soumis aux conditions d'âge et aux contrôles parentaux de chaque plateforme.</p>
+
+  <h2>9. Modifications</h2>
+  <p>Cette politique peut évoluer, par exemple si un jeu ajoute une fonctionnalité en ligne. La date de dernière mise à jour figure en haut de cette page.</p>
+</article>
+
+<!-- ===================== ENGLISH ===================== -->
+<article lang="en">
+  <p class="eyebrow">Personal data</p>
+  <h1>Privacy policy</h1>
+  <p class="updated">Last updated: September 30, 2026</p>
+
+  <div class="note">
+    <p><strong>In short:</strong> EgoTech Games does not sell your data, shows no ads and uses no analytics — neither on this website nor in its games. The only data involved is what the stores you buy our games from (Steam, Epic Games Store) need to provide their services: achievements and cloud saves.</p>
+  </div>
+
+  <h2>1. Who is responsible for your data?</h2>
+  <p>The data controller is <strong>EgoTech</strong>, a French EURL with a share capital of €1,000.00, 1C chemin de Négrot, 33360 Camblanes-et-Meynac, France, SIREN 949 726 004, which publishes games under the name <strong>EgoTech Games</strong>.</p>
+  <p>For any question about your data: <a href="mailto:contact@egotechgames.com">contact@egotechgames.com</a>.</p>
+  <p>This policy covers the egotechgames.com website and the games published by EgoTech Games, including <em>Just One More Season</em>.</p>
+
+  <h2>2. The egotechgames.com website</h2>
+  <ul>
+    <li><strong>No cookies, no analytics.</strong> The site sets no cookies and uses no statistics or tracking tools.</li>
+    <li><strong>Language preference.</strong> Your choice between French and English is stored only in your browser (local storage). It is never sent anywhere.</li>
+    <li><strong>Hosting.</strong> The site is hosted on GitHub Pages (GitHub, Inc.) and its domain name is managed by Cloudflare, Inc. Like any host, these providers may technically process your IP address to deliver pages and protect the service, under their own privacy policies. EgoTech has no access to these logs.</li>
+    <li><strong>YouTube videos.</strong> Trailers are embedded in no-cookie mode (youtube-nocookie.com) and only load when you press play. From then on, Google may collect data under its own privacy policy.</li>
+  </ul>
+
+  <h2>3. Our games</h2>
+  <p><strong>What the game stores on your device.</strong> Your save files and settings (language, audio, display…) are stored locally, in your system's user data folder. They contain no identity information and are never sent to EgoTech.</p>
+  <p><strong>What goes through the store.</strong> Depending on where you bought the game, it relies on services from:</p>
+  <ul>
+    <li><strong>Steam</strong> (Valve Corporation), through Steamworks;</li>
+    <li><strong>Epic Games Store</strong> (Epic Games, Inc.), through Epic Online Services.</li>
+  </ul>
+  <p>These services unlock <strong>achievements</strong> and sync your <strong>cloud saves</strong>. To do so, the store links your account ID, your achievement progress and the game's save files to your player account. Your account, purchases and payment details are handled solely by the store, under its own responsibility:</p>
+  <ul>
+    <li><a href="https://store.steampowered.com/privacy_agreement/" target="_blank" rel="noopener">Valve (Steam) privacy policy</a></li>
+    <li><a href="https://www.epicgames.com/site/privacypolicy" target="_blank" rel="noopener">Epic Games privacy policy</a></li>
+  </ul>
+  <p>EgoTech has <strong>no access</strong> to your email address, name or payment information. Stores only provide us with aggregated, anonymous statistics (number of sales, percentage of players who unlocked an achievement, etc.).</p>
+  <p><strong>What the game doesn't do.</strong> No telemetry, no ads, no in-game purchases, no player-to-player messaging. The game can be played offline.</p>
+
+  <h2>4. When you contact us</h2>
+  <p>If you email us (support, press, partnerships), we use your address and message only to reply and follow up on your request. These exchanges are kept for at most <strong>3 years</strong> after our last contact, then deleted.</p>
+  <p>Our email is hosted by Google Workspace (Google Ireland Limited).</p>
+
+  <h2>5. Legal bases</h2>
+  <ul>
+    <li>Achievements and cloud saves: performance of the licence agreement for the game you acquired.</li>
+    <li>Replying to your messages: our legitimate interest in answering people who contact us.</li>
+    <li>Website language preference: strictly necessary for the service you request, never transmitted.</li>
+  </ul>
+
+  <h2>6. Transfers outside the European Union</h2>
+  <p>Some of the providers listed above (GitHub, Cloudflare, Valve, Epic Games, Google) are based in the United States or transfer data there. These transfers rely on the EU–US Data Privacy Framework or on the European Commission's standard contractual clauses, depending on the provider.</p>
+
+  <h2>7. Your rights</h2>
+  <p>Under the GDPR and French data protection law, you have the right to access, rectify, erase, restrict, object to and port your data, and to set instructions on what happens to it after your death.</p>
+  <p>To exercise these rights, write to <a href="mailto:contact@egotechgames.com">contact@egotechgames.com</a>. For data tied to your Steam or Epic account, please contact that store directly, as it alone holds that data.</p>
+  <p>If you believe your rights are not being respected, you can lodge a complaint with the French data protection authority, the <a href="https://www.cnil.fr/en/" target="_blank" rel="noopener">CNIL</a>, or with the authority in your country.</p>
+
+  <h2>8. Children</h2>
+  <p>We do not knowingly collect any data about children. Access to the stores and their online services is subject to each store's age requirements and parental controls.</p>
+
+  <h2>9. Changes</h2>
+  <p>This policy may change, for example if a game adds an online feature. The date of the last update is shown at the top of this page.</p>
+</article>
+
+</main>
+
+<footer>
+  <div class="wrap row">
+    <a href="../"><img class="pixel" src="../assets/logo-horizontal-light.png" alt="EgoTech Games" width="104" height="36"></a>
+    <span>© <span id="year">2026</span> EgoTech · <span lang="fr">Tous droits réservés.</span><span lang="en">All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btns = document.querySelectorAll('[data-set-lang]');
+    function set(l) {
+      root.setAttribute('data-lang', l); root.setAttribute('lang', l);
+      for (var i = 0; i < btns.length; i++) btns[i].setAttribute('aria-pressed', btns[i].getAttribute('data-set-lang') === l ? 'true' : 'false');
+      document.title = l === 'fr' ? 'Politique de confidentialité — EgoTech Games' : 'Privacy policy — EgoTech Games';
+      try { localStorage.setItem('eg-lang', l); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('eg-lang'); } catch (e) {}
+    /* ?lang=en force la langue (lien depuis une fiche de boutique anglophone) */
+    var q = (location.search.match(/[?&]lang=(fr|en)\b/) || [])[1];
+    var nav = (navigator.language || 'fr').toLowerCase();
+    set(q || saved || (nav.indexOf('fr') === 0 ? 'fr' : 'en'));
+    for (var b = 0; b < btns.length; b++) btns[b].addEventListener('click', function () {
+      var l = this.getAttribute('data-set-lang');
+      if (l !== root.getAttribute('data-lang')) set(l);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
