@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Just One More Season : prends la tête d'une équipe e-sport et mène-la du Fer au Diamant. Ajoute le jeu à ta liste de souhaits sur Steam ou l'Epic Games Store.">
+<meta property="og:site_name" content="EgoTech Games">
+<meta property="og:title" content="Just One More Season — Wishlist sur Steam & Epic">
+<meta property="og:description" content="Jeu de gestion d'équipe e-sport roguelike. Sortie mars 2027.">
+<meta property="og:image" content="https://egotechgames.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Just One More Season — l'open space de l'équipe e-sport">
+<meta property="og:url" content="https://egotechgames.com/joms/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://egotechgames.com/joms/">
+<meta name="theme-color" content="#251C3B">
+<link rel="icon" type="image/png" href="../assets/icon-square.png">
+<link rel="apple-touch-icon" href="../assets/icon-square.png">
+<title>Just One More Season — EgoTech Games</title>
+<link rel="preload" href="../assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/silkscreen-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Polices auto-hébergées (SIL Open Font License) — voir assets/fonts/LICENSE.txt */
+  @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(../assets/fonts/figtree-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(../assets/fonts/figtree-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Pixelify Sans'; font-style: normal; font-weight: 400 700; font-display: swap;
+    src: url(../assets/fonts/pixelify-sans-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Silkscreen'; font-style: normal; font-weight: 400; font-display: swap;
+    src: url(../assets/fonts/silkscreen-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  :root {
+    --nuit: #251C3B; --nuit-2: #2F2549; --contour: #1B1426; --lavande: #8E86B0;
+    --creme: #FFF3DE; --framboise: #E8386C; --ambre: #FFC24B;
+    --f-pixel: "Pixelify Sans", "Silkscreen", ui-monospace, monospace;
+    --f-label: "Silkscreen", ui-monospace, "Courier New", monospace;
+    --f-body:  "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --px: 4px; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--nuit); color: var(--creme); font-family: var(--f-body);
+    font-size: 17px; line-height: 1.55; padding-inline: 16px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background-image: radial-gradient(rgba(142,134,176,.10) 1px, transparent 1px); background-size: 16px 16px;
+  }
+  .pixel { image-rendering: pixelated; image-rendering: crisp-edges; }
+  a { color: var(--ambre); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--ambre); outline-offset: 3px; }
+  html[data-lang="fr"] [lang="en"]:not(html) { display: none !important; }
+  html[data-lang="en"] [lang="fr"]:not(html) { display: none !important; }
+
+  /* Mobile d'abord : une seule colonne étroite, centrée */
+  .wrap { max-width: 520px; margin-inline: auto; }
+
+  header.top { padding-block: calc(12px + env(safe-area-inset-top, 0px)) 12px; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  header.top .brand img { height: 32px; width: auto; display: block; }
+  .lang-switch { display: inline-flex; border: 2px solid var(--contour); box-shadow: 3px 3px 0 var(--contour); }
+  .lang-switch button { font-family: var(--f-label); font-size: 12px; letter-spacing: .04em; padding: 6px 10px; color: var(--creme); background: transparent; border: 0; cursor: pointer; }
+  .lang-switch button + button { border-left: 2px solid var(--contour); }
+  .lang-switch button[aria-pressed="true"] { color: var(--contour); background: var(--ambre); cursor: default; box-shadow: inset 2px 2px 0 rgba(0,0,0,.25); }
+
+  main { padding-block: 8px 32px; display: grid; gap: 20px; }
+
+  .shot {
+    display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden;
+    border: var(--px) solid var(--contour); box-shadow: 6px 6px 0 var(--contour); background: var(--nuit-2);
+  }
+  .shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  .intro { display: grid; gap: 8px; text-align: center; justify-items: center; }
+  .status {
+    font-family: var(--f-label); font-size: 12px; padding: 4px 10px;
+    background: var(--ambre); color: var(--contour); border: 2px solid var(--contour);
+  }
+  h1 { font-family: var(--f-pixel); font-weight: 700; font-size: clamp(2rem, 9vw, 2.6rem); line-height: 1.05; margin: 0; text-wrap: balance; }
+  .tagline { margin: 0; color: var(--lavande); font-size: 1rem; }
+
+  /* ---------- Les gros boutons : le cœur de la page ---------- */
+  .cta { display: grid; gap: 16px; }
+  .btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+    min-height: 84px; padding: 14px 18px; text-align: center; text-decoration: none;
+    border: var(--px) solid var(--contour); box-shadow: 6px 6px 0 var(--contour);
+    transition: transform .08s, box-shadow .08s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn:active { transform: translate(6px,6px); box-shadow: none; }
+  .btn .big { font-family: var(--f-pixel); font-weight: 700; font-size: clamp(1.45rem, 6.5vw, 1.8rem); line-height: 1.1; }
+  .btn .small { font-family: var(--f-label); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; opacity: .85; }
+  .btn.steam { background: var(--framboise); color: var(--creme); }
+  .btn.epic  { background: var(--creme); color: var(--contour); }
+  .cta-note { margin: 0; text-align: center; font-size: 14px; color: var(--lavande); }
+
+  /* ---------- Description ---------- */
+  .about { background: var(--nuit-2); border: 3px solid var(--contour); padding: 18px; display: grid; gap: 14px; }
+  .about p { margin: 0; }
+  .about ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+  .about li::marker { color: var(--framboise); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-family: var(--f-label); font-size: 11px; letter-spacing: .04em; padding: 3px 8px; border: 2px solid var(--lavande); }
+  .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; font-family: var(--f-label); font-size: 13px; }
+
+  footer { padding-block: 20px 32px; border-top: var(--px) solid var(--contour); font-size: 13px; color: var(--lavande); text-align: center; }
+
+  @media (hover: hover) {
+    .btn:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--contour); }
+    .lang-switch button:not([aria-pressed="true"]):hover { color: var(--ambre); }
+  }
+  @media (min-width: 700px) { main { padding-top: 24px; } }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="EgoTech Games — accueil">
+      <img class="pixel" src="../assets/logo-horizontal-light.png" alt="EgoTech Games" width="92" height="32">
+    </a>
+    <div class="lang-switch" role="group" aria-label="Langue / Language">
+      <button type="button" data-set-lang="fr" aria-pressed="true" title="Français">FR</button>
+      <button type="button" data-set-lang="en" aria-pressed="false" title="English">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="intro">
+    <span class="status"><span lang="fr">Sortie mars 2027</span><span lang="en">Coming March 2027</span></span>
+    <h1>Just One More Season</h1>
+    <p class="tagline"><span lang="fr">Gestion d'équipe e-sport · Roguelike</span><span lang="en">Esports team management · Roguelike</span></p>
+  </div>
+
+  <picture class="shot">
+    <source type="image/avif" srcset="../assets/screenshots/just-one-more-season/fr/05_match_direct-800.avif 800w, ../assets/screenshots/just-one-more-season/fr/05_match_direct-1600.avif 1600w" sizes="(max-width: 552px) 100vw, 520px">
+    <source type="image/webp" srcset="../assets/screenshots/just-one-more-season/fr/05_match_direct-800.webp 800w, ../assets/screenshots/just-one-more-season/fr/05_match_direct-1600.webp 1600w" sizes="(max-width: 552px) 100vw, 520px">
+    <img src="../assets/screenshots/just-one-more-season/fr/05_match_direct-800.webp" width="1600" height="900" alt="Match e-sport joué en direct, round par round, dans Just One More Season." fetchpriority="high" decoding="async">
+  </picture>
+
+  <div class="cta">
+    <a class="btn steam" href="https://store.steampowered.com/app/5252250/Just_One_More_Season/?utm_source=egotechgames&amp;utm_medium=qrcode" target="_blank" rel="noopener">
+      <span class="big"><span lang="fr">Wishlist sur Steam</span><span lang="en">Wishlist on Steam</span></span>
+      <span class="small"><span lang="fr">Ajouter à ma liste de souhaits</span><span lang="en">Add to my wishlist</span></span>
+    </a>
+    <a class="btn epic" href="https://store.epicgames.com/p/just-one-more-season-c6383e" target="_blank" rel="noopener">
+      <span class="big"><span lang="fr">Wishlist sur Epic</span><span lang="en">Wishlist on Epic</span></span>
+      <span class="small">Epic Games Store</span>
+    </a>
+    <p class="cta-note"><span lang="fr">Ta wishlist aide énormément un jeu indé : merci !</span><span lang="en">Wishlisting really helps an indie game: thank you!</span></p>
+  </div>
+
+  <section class="about" aria-labelledby="about-title">
+    <h2 id="about-title" class="tag" style="justify-self:start;margin:0;font-weight:400"><span lang="fr">Le jeu</span><span lang="en">The game</span></h2>
+    <p>
+      <span lang="fr">Prends la tête d'une équipe e-sport et mène-la du tier Fer jusqu'au Diamant. Chaque saison est une nouvelle run : les choix que tu fais entre deux matchs changent tout.</span>
+      <span lang="en">Take charge of an esports team and push it from Iron all the way to Diamond. Every season is a new run — the calls you make between matches change everything.</span>
+    </p>
+    <ul>
+      <li><span lang="fr">Recrute et entraîne tes joueurs</span><span lang="en">Scout, sign and train your players</span></li>
+      <li><span lang="fr">Gère le moral, la fatigue et les finances</span><span lang="en">Manage morale, fatigue and money</span></li>
+      <li><span lang="fr">Regarde les matchs en direct, round par round</span><span lang="en">Watch matches live, round by round</span></li>
+    </ul>
+    <div class="tags">
+      <span class="tag">Windows</span><span class="tag">Linux</span><span class="tag">macOS</span>
+      <span class="tag"><span lang="fr">Solo</span><span lang="en">Single-player</span></span>
+    </div>
+  </section>
+
+  <nav class="links" aria-label="Liens">
+    <a href="https://www.youtube.com/watch?v=XyPo8tdlYJw" target="_blank" rel="noopener"><span lang="fr">Voir la bande-annonce</span><span lang="en">Watch the trailer</span></a>
+    <a href="../#just-one-more-season"><span lang="fr">Le studio</span><span lang="en">The studio</span></a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year">2026</span> EgoTech Games · <a href="../privacy/"><span lang="fr">Confidentialité</span><span lang="en">Privacy</span></a></div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btns = document.querySelectorAll('[data-set-lang]');
+    var img = document.querySelector('.shot img');
+    var alts = { fr: "Match e-sport joué en direct, round par round, dans Just One More Season.", en: "An esports match playing out live, round by round, in Just One More Season." };
+    function set(l) {
+      root.setAttribute('data-lang', l); root.setAttribute('lang', l);
+      for (var i = 0; i < btns.length; i++) btns[i].setAttribute('aria-pressed', btns[i].getAttribute('data-set-lang') === l ? 'true' : 'false');
+      /* Capture d'écran dans la langue choisie */
+      var pic = img.parentNode.children;
+      for (var j = 0; j < pic.length; j++) {
+        var attr = pic[j].tagName === 'IMG' ? 'src' : 'srcset';
+        pic[j].setAttribute(attr, pic[j].getAttribute(attr).replace(/\/(fr|en)\//g, '/' + l + '/'));
+      }
+      img.alt = alts[l];
+      try { localStorage.setItem('eg-lang', l); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('eg-lang'); } catch (e) {}
+    var q = (location.search.match(/[?&]lang=(fr|en)\b/) || [])[1];
+    var nav = (navigator.language || 'fr').toLowerCase();
+    set(q || saved || (nav.indexOf('fr') === 0 ? 'fr' : 'en'));
+    for (var b = 0; b < btns.length; b++) btns[b].addEventListener('click', function () {
+      var l = this.getAttribute('data-set-lang');
+      if (l !== root.getAttribute('data-lang')) set(l);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
